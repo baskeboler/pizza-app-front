@@ -18,5 +18,5 @@ angular.module('sbAdminApp')
       controller:function($scope){
         $scope.selectedMenu = 'home';
       }
-    }
+    };
   });

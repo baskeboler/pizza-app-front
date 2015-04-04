@@ -1,0 +1,978 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"loadMy",
+				"loadMyFiles"
+			],
+			[
+				"loadC",
+				"loadChartLib"
+			],
+			[
+				"build",
+				"buildcontrol"
+			],
+			[
+				"active",
+				"activeItem"
+			],
+			[
+				"ng-op",
+				"ng-options	AngularJS"
+			],
+			[
+				"todo",
+				"todoType"
+			],
+			[
+				"_re",
+				"_remove	Removes all elements from an array that the callback returns truey for and returns an array of removed elements."
+			],
+			[
+				"line",
+				"lineChart"
+			],
+			[
+				"la",
+				"latestResult"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"small",
+				"small	Tag"
+			],
+			[
+				"div",
+				"div	Tag"
+			],
+			[
+				"section",
+				"section	Tag"
+			],
+			[
+				"sec",
+				"section	Tag"
+			],
+			[
+				"se",
+				"section	<section>"
+			],
+			[
+				"fw",
+				"fw-b	font-weight: bold;"
+			],
+			[
+				"fs",
+				"fst-uc	font-stretch: ultra-condensed;"
+			],
+			[
+				"tite",
+				"title	Attr"
+			],
+			[
+				"ng-cl",
+				"ng-click	AngularJS"
+			],
+			[
+				"styl",
+				"style	Attr"
+			],
+			[
+				"style",
+				"style	<style>"
+			],
+			[
+				"gr",
+				"gridData"
+			],
+			[
+				"gri",
+				"gridData"
+			],
+			[
+				"cn",
+				"controller	AngularJS"
+			],
+			[
+				"nv",
+				"nvd3"
+			],
+			[
+				"scope",
+				"$scope	AngularJS"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"pos",
+				"pos-a	position: absolute;"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "Remote:   origin @ https://github.com/start-angular/sb-admin-angular.git\nLocal:    master ~/Documents/switch/sb-admin-angular\nHead:     2f82c5b Merge pull request #11 from beeman/gruntfile\n\n\nUnstaged changes:\n	Modified   app/scripts/app.js\n\nStaged changes:\n	Modified   .gitignore\n	Added      .jshintrc\n	Added      .project\n	Added      .tern-project\n	Modified   app/index.html\n	Modified   app/js/sb-admin-2.js\n	Modified   app/scripts/app.js\n	Added      app/scripts/controllers/ClienteCtrl.js\n	Modified   app/scripts/directives/sidebar/sidebar-search/sidebar-search.js\n	Modified   app/scripts/directives/sidebar/sidebar.html\n	Modified   app/scripts/directives/sidebar/sidebar.js\n	Modified   app/views/chart.html\n	Added      app/views/clientes/main.html\n	Modified   bower.json\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"settings":
+			{
+				"buffer_size": 1536,
+				"line_ending": "Unix",
+				"name": "*git-status*: sb-admin-angular",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/scripts/app.js",
+			"settings":
+			{
+				"buffer_size": 5663,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/controllers/chartContoller.js",
+			"settings":
+			{
+				"buffer_size": 1743,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "form",
+		"selected_items":
+		[
+			[
+				"form",
+				"Format: Javascript"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"git-fl",
+				"Git-flow: Init With Defaults"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"remote",
+				"Git: Remote"
+			],
+			[
+				"git ",
+				"Git: Status"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"git",
+				"Git: Status"
+			],
+			[
+				"ang",
+				"AngularJS: Rebuild Search Index"
+			],
+			[
+				"emmet ta",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"angular",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"html",
+				"HTMLBeautify"
+			],
+			[
+				"linter",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"an",
+				"AngularJS: Rebuild Search Index"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"beau",
+				"HTMLBeautify"
+			],
+			[
+				"ht",
+				"HTMLBeautify"
+			],
+			[
+				"renam",
+				"Emmet: Rename Tag"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ren",
+				"Emmet: Rename Tag"
+			],
+			[
+				"sta",
+				"Git: Status"
+			],
+			[
+				"lo",
+				"Git: Log"
+			],
+			[
+				"log",
+				"Git: Log"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"grun",
+				"Grunt"
+			],
+			[
+				"",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"look",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"li",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"err",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"er",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"error",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"st",
+				"Git: Status"
+			],
+			[
+				"diff",
+				"Git: Diff"
+			],
+			[
+				"legit",
+				"Legit: Branches"
+			],
+			[
+				"lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sub",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"fe",
+				"Git: Fetch"
+			],
+			[
+				"g",
+				"Git: Status"
+			],
+			[
+				"remo",
+				"Git: Remote"
+			],
+			[
+				"pu",
+				"Git: Push"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"remot",
+				"Git: Add Remote"
+			],
+			[
+				"dev",
+				"DevDocs: Search From Input"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 852.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": true
+	},
+	"expanded_folders":
+	[
+		"/home/victor/Documents/switch/sb-admin-angular",
+		"/home/victor/Documents/switch/sb-admin-angular/app",
+		"/home/victor/Documents/switch/sb-admin-angular/app/js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/dashboard/stats",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar",
+		"/home/victor/Documents/switch/sb-admin-angular/app/styles"
+	],
+	"file_history":
+	[
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/controllers/todo.js",
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/app.js",
+		"/home/victor/Documents/switch/simple-angular-app/bower_components/angular-ui-select/dist/select.css",
+		"/home/victor/Documents/switch/simple-angular-app/Gruntfile.js",
+		"/home/victor/Documents/switch/simple-angular-app/app/views/navbar-widget.html",
+		"/home/victor/Documents/switch/simple-angular-app/package.json",
+		"/home/victor/Documents/switch/geeklab201503/package.json",
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/directives/my-video-recorder.js",
+		"/home/victor/Documents/switch/simple-angular-app/app/views/video.html",
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/directives/navbaritem.js",
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/directives/navbarwidget.js",
+		"/home/victor/Documents/switch/simple-angular-app/bower.json",
+		"/home/victor/Documents/switch/simple-angular-app/app/index.html",
+		"/home/victor/Documents/switch/simple-angular-app/app/views/navbar-item.html",
+		"/home/victor/Documents/switch/simple-angular-app/app/views/todo.html",
+		"/home/victor/Documents/switch/simple-angular-app/simple-app.sublime-project",
+		"/home/victor/Documents/switch/simple-angular-app/README.md",
+		"/home/victor/Documents/switch/geeklab201503/bower.json",
+		"/home/victor/Documents/switch/geeklab201503/Gruntfile.coffee",
+		"/home/victor/Documents/switch/simple-angular-app/bower_components/video.js/dist/video-js/video.dev.js",
+		"/home/victor/Documents/switch/simple-angular-app/bower_components/angular-ui-select2/README.md",
+		"/home/victor/Documents/switch/simple-angular-app/bower_components/angular-ui-select/README.md",
+		"/home/victor/Documents/switch/simple-angular-app/app/styles/main.css",
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/controllers/navbarcontroller.js",
+		"/home/victor/Documents/switch/simple-angular-app/bower_components/ng-lodash/build/ng-lodash.js",
+		"/home/victor/Documents/switch/simple-angular-app/test/spec/e2e/conf.js",
+		"/home/victor/Documents/switch/simple-angular-app/app/scripts/controllers/calc.js",
+		"/home/victor/Documents/switch/simple-angular-app/app/views/calc.html",
+		"/home/victor/Documents/switch/simple-angular-app/test/spec/e2e/spec.js",
+		"/home/victor/Documents/switch/simple-angular-app/e2e/spec.js",
+		"/home/victor/Documents/switch/simple-angular-app/e2e/conf.js",
+		"/home/victor/Documents/switch/simple-angular-app/test/spec/controllers/calc.js",
+		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/reveal.css",
+		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/plugin/highlight/highlight.js",
+		"/home/victor/Documents/switch/geeklab201503/templates/_index.html",
+		"/home/victor/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/victor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/victor/.config/sublime-text-3/Packages/Grunt/SublimeGrunt.sublime-settings",
+		"/home/victor/.config/sublime-text-3/Packages/User/SublimeGrunt.sublime-settings",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/oclazyload/dist/ocLazyLoad.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/chartContoller.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/main.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-chart.js/angular-chart.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/chart.html",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar-search/sidebar-search.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.html",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/clientes/main.html",
+		"/home/victor/software/Aptana_Studio_3/AptanaStudio3.sh",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-animate/angular-animate.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular/angular.min.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular/angular-csp.css",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular/angular.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/region-usage-json/alt-na.json",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-clean/AUTHORS",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/ui-elements/notifications.html",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/oclazyload/examples/requireJSExample/css/ng-grid.css",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/node_modules/npmconf/node_modules/uid-number/get-uid-gid.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/es5-shim/CHANGES",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/dashboard/home.html",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/chalk/node_modules/.bin/has-ansi",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/karma/node_modules/http-proxy/node_modules/utile/node_modules/i/test/inflector/inflections-test.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/karma/node_modules/http-proxy/test/core/simple/test-http-many-keep-alive-connections.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-cssmin/node_modules/clean-css/lib/properties/shorthand-notations.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-toggle-switch/angular-toggle-switch.min.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/karma/node_modules/connect/node_modules/body-parser/node_modules/iconv-lite/encodings/tables/shiftjis.json",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/karma/node_modules/http-proxy/node_modules/utile/node_modules/i/lib/inflections.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/jquery/src/manipulation.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/features-json/screen-orientation.json",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/postcss/lib/declaration.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/imagemin-svgo/node_modules/svgo/node_modules/sax/test/parser-position.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-svgmin/node_modules/svgo/node_modules/sax/test/parser-position.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-ng-annotate/node_modules/ng-annotate/pos-to-linecolumn.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/zlib-browserify/node_modules/tape/test/plan_optional.js",
+		"/home/victor/Documents/switch/sb-admin-angular/package.json",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-sanitize/angular-sanitize.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-htmlmin/node_modules/html-minifier/node_modules/clean-css/lib/properties/override-compactor.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/jquery/src/offset.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-scenario/angular-scenario.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-resource/angular-resource.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-loading-bar/src/loading-bar.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-loading-bar/build/loading-bar.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/lib/commands/lookup.js",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/karma/node_modules/optimist/example/line_count_options.js",
+		"/home/victor/Documents/switch/sb-admin-angular/LICENSE",
+		"/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/features-json/css-hyphens.json",
+		"/home/victor/tmp/pizza-backend/public/bower_components/angular-ui-router/release/angular-ui-router.js",
+		"/home/victor/tmp/pizza-backend/public/bower_components/angular-resource/angular-resource.js",
+		"/home/victor/tmp/pizza-backend/public/bower_components/angular-sanitize/angular-sanitize.js",
+		"/home/victor/Documents/switch/geeklab201503/dist/bower_components/fontawesome/fonts/fontawesome-webfont.svg",
+		"/home/victor/Documents/switch/geeklab201503/dist/bower_components/fontawesome/fonts/fontawesome-webfont.woff",
+		"/home/victor/Documents/switch/geeklab201503/dist/bower_components/fontawesome/fonts/fontawesome-webfont.woff2",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-jshint/node_modules/jshint/data/non-ascii-identifier-part-only.js",
+		"/home/victor/Documents/switch/geeklab201503/dist/bower_components/reveal-highlight-themes/styles/atelier-forest.dark.css",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-connect/node_modules/connect/node_modules/body-parser/node_modules/iconv-lite/encodings/sbcs-data-generated.js",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-connect/node_modules/connect/node_modules/body-parser/node_modules/iconv-lite/encodings/dbcs-data.js",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt/node_modules/dateformat/lib/dateformat.js",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/test/Events/16-double_attribs.json",
+		"/home/victor/Documents/switch/geeklab201503/slides/directives.html",
+		"/home/victor/Documents/switch/geeklab201503/index.html",
+		"/home/victor/Documents/switch/geeklab201503/slides/introduccion.html",
+		"/home/victor/Documents/switch/geeklab201503/templates/_section.html",
+		"/home/victor/Documents/switch/geeklab201503/dist/slides/metas-de-diseno.md",
+		"/home/victor/Documents/switch/geeklab201503/slides/metas-de-diseno.html",
+		"/home/victor/Documents/switch/geeklab201503/slides/contenido-cont.html",
+		"/home/victor/Documents/switch/geeklab201503/slides/inicio.html",
+		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/theme/default.css",
+		"/home/victor/Documents/switch/geeklab201503/slides/contenido.md",
+		"/home/victor/Documents/switch/geeklab201503/slides/index.md",
+		"/home/victor/Documents/switch/geeklab201503/slides/metas-de-diseno.md",
+		"/home/victor/Documents/switch/geeklab201503/slides/help.html",
+		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/theme/template/theme.scss",
+		"/home/victor/Documents/switch/geeklab201503/slides/ejemplo-cont.html",
+		"/home/victor/Documents/switch/geeklab201503/Gruntfile.js",
+		"/home/victor/.bash_profile",
+		"/home/victor/.bashrc",
+		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/test/examples/barebones.html",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/.bin/strip-ansi",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/.bin/has-ansi",
+		"/home/victor/Documents/switch/geeklab201503/.bowerrc",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-build-control/Gruntfile.js",
+		"/home/victor/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/victor/.config/sublime-text-3/Packages/User/JSON.sublime-settings",
+		"/home/victor/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/victor/.nvm/nvm.sh",
+		"/home/victor/Documents/switch/geeklab201503/slides/ejemplo.html",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-jshint/node_modules/.bin/jshint",
+		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt/node_modules/js-yaml/lib/js-yaml/exception.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/home/victor/Documents/switch/geeklab201503/slides",
+			"*.html",
+			"*,/home/victor/Documents/switch/sb-admin-angular/app/scripts",
+			"*",
+			"*.html",
+			"",
+			"*"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"",
+			".\n",
+			"img",
+			"code",
+			"ngGrid",
+			"    <",
+			"jshint",
+			"dropDown",
+			"sidebar",
+			"char",
+			".content",
+			"content",
+			"d3",
+			"global",
+			"\"",
+			"angular",
+			"js",
+			"data-ele",
+			"data-",
+			"data-*",
+			"data-font",
+			"data-color",
+			"data-theme",
+			"data-background",
+			"img",
+			"im",
+			"background",
+			"createSingletonNode",
+			"reveal",
+			"jsh",
+			"code"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								299,
+								299
+							]
+						],
+						"settings":
+						{
+							"__vi_external_disable": true,
+							"draw_white_space": "none",
+							"git_repo": "/home/victor/Documents/switch/sb-admin-angular",
+							"git_status": true,
+							"git_view": "status",
+							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 170.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/scripts/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5663,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4675,
+								4675
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2040.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/scripts/controllers/chartContoller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1743,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 247.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 112.0
+	},
+	"output.git-fetch":
+	{
+		"height": 112.0
+	},
+	"output.git-flow-init":
+	{
+		"height": 0.0
+	},
+	"output.git-init":
+	{
+		"height": 112.0
+	},
+	"output.git-pull":
+	{
+		"height": 112.0
+	},
+	"output.git-push":
+	{
+		"height": 112.0
+	},
+	"output.git-remote":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "",
+	"project": "sb-admin-angular.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"video.js",
+				"bower_components/video.js/dist/video-js/video.dev.js"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"selec",
+				"bower_components/angular-ui-select/dist/select.css"
+			],
+			[
+				"todo",
+				"app/scripts/controllers/todo.js"
+			],
+			[
+				"ngl",
+				"bower_components/ng-lodash/build/ng-lodash.js"
+			],
+			[
+				"bowe",
+				"bower.json"
+			],
+			[
+				"calc",
+				"app/scripts/controllers/calc.js"
+			],
+			[
+				"lis",
+				"slides/list.json"
+			],
+			[
+				"revea",
+				"bower_components/reveal.js/css/reveal.css"
+			],
+			[
+				"depe",
+				"slides/dependency-injection-2.html"
+			],
+			[
+				"li",
+				"slides/list.json"
+			],
+			[
+				"refere",
+				"slides/referencias.html"
+			],
+			[
+				"conteni",
+				"slides/contenido.html"
+			],
+			[
+				"controll",
+				"slides/controllers-2-way-data-binding.html"
+			],
+			[
+				".js",
+				".jshintrc"
+			],
+			[
+				"_",
+				"templates/_index.html"
+			],
+			[
+				"revel",
+				"bower_components/reveal.js/css/reveal.css"
+			],
+			[
+				"ng",
+				"bower_components/ng-grid/build/ng-grid.js"
+			],
+			[
+				"app",
+				"app/scripts/app.js"
+			],
+			[
+				"clie",
+				"app/scripts/controllers/ClienteCtrl.js"
+			],
+			[
+				"main",
+				"app/views/clientes/main.html"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"angu",
+				"bower_components/angular-chart.js/angular-chart.js"
+			],
+			[
+				"",
+				"app/scripts/directives/sidebar/sidebar.html"
+			],
+			[
+				"chart.",
+				"app/views/chart.html"
+			],
+			[
+				"chart",
+				"app/scripts/controllers/chartContoller.js"
+			],
+			[
+				"ocla",
+				"bower_components/oclazyload/dist/ocLazyLoad.js"
+			],
+			[
+				"chartcon",
+				"app/scripts/controllers/chartContoller.js"
+			],
+			[
+				"met",
+				"slides/metas-de-diseno.html"
+			],
+			[
+				"meta",
+				"slides/metas-de-diseno.md"
+			],
+			[
+				"ini",
+				"slides/inicio.html"
+			],
+			[
+				"ind",
+				"slides/introduccion.md"
+			],
+			[
+				"sectin",
+				"templates/_section.html"
+			],
+			[
+				"ejempl",
+				"slides/ejemplo-hello-world.md"
+			],
+			[
+				"metas",
+				"slides/metas-de-diseno.md"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"eje",
+				"slides/ejemplo-hello-world-cont.md"
+			],
+			[
+				"conte",
+				"slides/contenido.md"
+			],
+			[
+				"con",
+				"slides/contenido-cont.md"
+			],
+			[
+				"list",
+				"slides/list.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 291.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
