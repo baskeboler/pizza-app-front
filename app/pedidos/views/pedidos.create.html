@@ -72,7 +72,7 @@
 										{{$select.selected.nombre}}
 									</ui-select-match>
 									<ui-select-choices repeat="plato in vm.listaPlatos|filter: $select.search">
-										<div ng-bind-html="vm.trustAsHtml((plato.nombre|highlight: $select.search))"></div>
+										<div ng-bind-html="plato.nombre|highlight: $select.search"></div>
 									</ui-select-choices>
 								</ui-select>
 								
@@ -103,7 +103,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr ng-repeat="item in vm.items">
+										<tr ng-repeat="item in vm.items" class="fx-zoom-up fx-easing-elastic fx-speed-500">
 											<td>{{item.producto.nombre}}</td>
 											<td>{{item.producto.precio | currency}}</td>
 											<td><input type="number" ng-model="item.cantidad" ng-change="vm.calcularTotal()"></td>

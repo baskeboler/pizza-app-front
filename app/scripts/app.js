@@ -15,8 +15,13 @@
       'ui.bootstrap',
       'angular-loading-bar',
       'ngGrid',
+      'ngSanitize',
+      'ui.select',
       'restangular',
-      'cgNotify'
+      'cgNotify',
+      'ngAnimate',
+      'ngFx',
+      'chart.js'
     ])
     .config(['RestangularProvider',function(RestangularProvider) {
       RestangularProvider.setBaseUrl('http://localhost:8080');
@@ -111,10 +116,7 @@
             loadMyDirectives: function($ocLazyLoad) {
               return $ocLazyLoad.load('sbAdminApp'),
                 $ocLazyLoad.load('toggle-switch'),
-                $ocLazyLoad.load('ngAnimate'),
-                $ocLazyLoad.load('ngCookies'),
-                $ocLazyLoad.load('ngSanitize'),
-                $ocLazyLoad.load('ui.select');
+                $ocLazyLoad.load('ngCookies');
             }
           }
         })
@@ -154,7 +156,30 @@
         })
         .state('dashboard.pedidos', {
           url: '/pedidos',
-          templateUrl: '/pedidos/views/pedidos.html',
+          abstract: true,
+          template: '<ui-view />'
+        })
+        .state('dashboard.pedidos.list', {
+          url: '/list',
+          templateUrl: '/pedidos/views/pedidos.list.html',
+          controller: 'ListaPedidosController',
+          controllerAs: 'vm',
+          resolve: {
+            load: function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: [
+                  'pedidos/js/controllers/ListaPedidosCtrl.js',
+                  'pedidos/js/services/Pedido.js'
+                ]
+              })
+              // body...
+            }
+          }
+        })
+        .state('dashboard.pedidos.create', {
+          url: '/create',
+          templateUrl: '/pedidos/views/pedidos.create.html',
           controller: 'PedidosController',
           controllerAs: 'vm',
           resolve: {
@@ -227,8 +252,7 @@
           controller: 'ChartCtrl',
           resolve: {
             loadMyFiles: function($ocLazyLoad) {
-              return $ocLazyLoad.load('chart.js'),
-                $ocLazyLoad.load('scripts/controllers/chartContoller.js'); 
+              return $ocLazyLoad.load('scripts/controllers/chartContoller.js'); 
             }
           }
         })
