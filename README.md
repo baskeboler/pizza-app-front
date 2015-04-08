@@ -12,7 +12,7 @@
 - `npm start` - a shortcut for `grunt serve`
 - `npm run dist` - a shortcut for `grunt serve:dist` to minify the files for deployment
 
-Simple java spring backend to run this app is [available](https://github.com/baskeboler/pizza-app-front)
+Simple java spring backend to run this app is [available](https://github.com/baskeboler/pizza-app-backend)
 
 ## Roadmap
 
