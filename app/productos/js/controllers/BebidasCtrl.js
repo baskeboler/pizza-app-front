@@ -3,9 +3,9 @@
 
 	angular.module("sbAdminApp").controller('BebidasController', BebidasCtrl);
 
-	BebidasCtrl.$inject = ['Restangular', '$log'];
+	BebidasCtrl.$inject = ['$log', 'Bebida'];
 
-	function BebidasCtrl(Restangular, $log) {
+	function BebidasCtrl($log, Bebida) {
 		var vm = this;
 		vm.title = 'Bebidas';
 		vm.nueva = {};
@@ -17,11 +17,10 @@
 		vm.clearForm = clearForm;
 		vm.remove = removeBebida;
 
-		vm.bebidas = Restangular.all('bebidas');
 		vm.cargarLista();
 
 		function crearBebida () {
-			vm.bebidas.post(vm.nueva).then(ok, showErrors);
+			Bebida.create(vm.nueva).then(ok, showErrors);
 
 			function ok () {
 				vm.listaBebidas.push(vm.nueva);
@@ -46,7 +45,7 @@
 		}
 
 		function cargarListaBebidas () {
-			vm.bebidas.getList().then(fillData, showErrors);
+			Bebida.getList().then(fillData, showErrors);
 
 			function fillData (data) {
 				vm.listaBebidas = data;

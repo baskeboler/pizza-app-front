@@ -3,9 +3,9 @@
 
 	angular.module("sbAdminApp").controller('PlatosController', PlatosCtrl);
 
-	PlatosCtrl.$inject = ['Restangular', '$log'];
+	PlatosCtrl.$inject = ['Plato', '$log'];
 
-	function PlatosCtrl(Restangular, $log) {
+	function PlatosCtrl(Plato, $log) {
 		var vm = this;
 		vm.title = 'Platos';
 		vm.nueva = {};
@@ -17,11 +17,10 @@
 		vm.clearForm = clearForm;
 		vm.remove = removePlato;
 
-		vm.platos = Restangular.all('platos');
 		vm.cargarLista();
 
 		function crearNuevoPlato () {
-			vm.platos.post(vm.nueva).then(ok, showErrors);
+			Plato.post(vm.nueva).then(ok, showErrors);
 
 			function ok () {
 				vm.listaPlatos.push(vm.nueva);
@@ -46,7 +45,7 @@
 		}
 
 		function cargarListaPlatos () {
-			vm.platos.getList().then(fillData, showErrors);
+			Plato.getList().then(fillData, showErrors);
 
 			function fillData (data) {
 				vm.listaPlatos = data;

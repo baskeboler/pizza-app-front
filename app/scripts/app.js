@@ -15,7 +15,8 @@
       'ui.bootstrap',
       'angular-loading-bar',
       'ngGrid',
-      'restangular'
+      'restangular',
+      'cgNotify'
     ])
     .config(['RestangularProvider',function(RestangularProvider) {
       RestangularProvider.setBaseUrl('http://localhost:8080');
@@ -126,7 +127,10 @@
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['productos/js/controllers/BebidasCtrl.js']
+                files: [
+                  'productos/js/controllers/BebidasCtrl.js',
+                  'productos/js/services/Bebida.js'
+                ]
               });
             }
           }
@@ -140,7 +144,10 @@
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['productos/js/controllers/PlatosCtrl.js']
+                files: [
+                  'productos/js/controllers/PlatosCtrl.js',
+                  'productos/js/services/Plato.js'
+                ]
               });
             }
           }
@@ -154,7 +161,14 @@
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['pedidos/js/controllers/PedidosCtrl.js']
+                files: [
+                  'pedidos/js/controllers/PedidosCtrl.js',
+                  'clientes/js/controllers/CrearClienteModalInstanceCtrl.js',
+                  'clientes/js/services/Cliente.js',
+                  'productos/js/services/Bebida.js',
+                  'productos/js/services/Plato.js',
+                  'pedidos/js/services/Pedido.js'
+                ]
               });
             }
           }

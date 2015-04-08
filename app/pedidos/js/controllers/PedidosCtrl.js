@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('sbAdminApp').controller('PedidosController', PedidosController);
 
-	PedidosController.$inject = ['Restangular', '$log', '$sce', '$modal'];
+	PedidosController.$inject = ['notify', '$log', '$sce', '$modal', 'Cliente', 'Bebida', 'Plato', 'Pedido'];
 
-	function PedidosController (Restangular, $log, $sce, $modal) {
+	function PedidosController (notify, $log, $sce, $modal, Cliente, Bebida, Plato, Pedido) {
 		var vm = this;
 		vm.title = 'Pedidos';
 		vm.pedido = {};
@@ -18,6 +18,7 @@
 		vm.listaPlatos = [];
 		vm.errors = [];
 
+		vm.crearCliente = crearCliente;
 		vm.addItem = addItem;
 		vm.removeItem = removeItem;
 		vm.updateDireccion = updateDireccion;
@@ -32,21 +33,39 @@
 
 		vm.init = init;
 
-		vm.clientes = Restangular.all('clientes');
-		vm.bebidas = Restangular.all('bebidas');
-		vm.platos = Restangular.all('platos');
-		vm.pedidos = Restangular.all('pedidos');
-
 		vm.init();
+
+		function crearCliente () {
+			var clienteModal = $modal.open({
+				templateUrl: '/clientes/views/modals/crear-cliente-modal.html',
+				controller: 'CrearClienteModalInstanceController',
+				controllerAs: 'vm'
+			});
+
+			clienteModal.result.then(handleOk, dismissed);
+
+			function handleOk (argument) {
+				// body...
+				notify('Nuevo cliente ingresado.');
+				cargarClientes();
+			}
+
+			function dismissed (argument) {
+				// body...
+				$log.debug('no se creo ningun cliente.');
+				$log.debug(argument);
+			}
+		}
 
 		function crearPedido () {
 			vm.pedido.items = vm.items;
 			vm.pedido.fecha = new Date();
 			// body...
-			vm.pedidos.post(vm.pedido).then(ok, showErrors);
+			Pedido.create(vm.pedido).then(ok, showErrors);
 
 			function ok () {
 				vm.clearForm();
+				notify('Nuevo pedido ingresado.');
 			}
 		}
 
@@ -86,7 +105,7 @@
 			}
 		}
 		function cargarClientes () {
-			vm.clientes.getList().then(ok, showErrors);
+			Cliente.getList().then(ok, showErrors);
 
 			function ok (data) {
 				vm.listaClientes = data;
@@ -94,7 +113,7 @@
 		}
 
 		function cargarBebidas () {
-			vm.bebidas.getList().then(ok, showErrors);
+			Bebida.getList().then(ok, showErrors);
 
 			function ok (data) {
 				vm.listaBebidas = data;
@@ -102,7 +121,7 @@
 		}
 
 		function cargarPlatos () {
-			vm.platos.getList().then(ok, showErrors);
+			Plato.getList().then(ok, showErrors);
 
 			function ok (data) {
 				vm.listaPlatos = data;

@@ -1,0 +1,37 @@
+<div class="modal-header">
+	<h4 class="modal-title">
+		Crear Cliente
+	</h4>
+</div>
+<form ng-submit="vm.crearCliente()">	
+	<div class="modal-body">
+			<div class="form-group">
+				<label>
+					Nombre
+				</label>
+				<input type="text" ng-model="vm.nuevo.nombre" class="form-control" placeholder="Ingrese nombre" required>
+			</div>
+			<div class="form-group">
+				<label>
+					Email
+				</label>
+				<input type="email" ng-model="vm.nuevo.email" class="form-control" placeholder="ingrese email">
+			</div>
+			<div class="form-group">
+				<label>
+					Telefono
+				</label>
+				<input type="text" ng-model="vm.nuevo.telefono" class="form-control" placeholder="ingrese telefono" required>
+			</div>
+			<div class="form-group">
+				<label>
+					Direccion
+				</label>
+				<input type="text" ng-model="vm.nuevo.direccion" class="form-control" placeholder="ingrese direccion">
+			</div>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary"><i class="fa fa-check fa-fw"></i>Crear</button>
+		<button class="btn btn-default" type="button" ng-click="vm.cancelar()">Cancel</button>	
+	</div>
+</form>
