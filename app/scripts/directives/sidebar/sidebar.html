@@ -8,19 +8,34 @@
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.clientes"><i class="fa fa-users fa-fw"></i> Clientes<span></span></a>
             </li>
+            <li ng-class="{active: collapseVar==5}">
+                <a href="" ng-click="check(5)"><i class="fa fa-spoon fa-fw"></i>Productos <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" collapse="collapseVar!=5">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.bebidas"><i class="fa fa-glass fa-fw"></i> Bebidas<span></span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.platos"><i class="fa fa-cutlery fa-fw"></i> Platos<span></span></a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.pedidos"><i class="fa fa-shopping-cart fa-fw"></i> Pedidos<span></span></a>
+            </li>
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.chart"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span></span></a>
             </li>
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.table"><i class="fa fa-table fa-fw"></i> Tables</a>
             </li>
-            <li ui-sref-active="active">
-                <a ui-sref="dashboard.form"><i class="fa fa-edit fa-fw"></i> Forms</a>
-            </li>
             <li ng-class="{active: collapseVar==1}">{{dropDown}}
-                <a href="" ng-click="collapseVar=1"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
+                <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
                 class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=1">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.form"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                    </li>
                     <li ui-sref-active="active">
                         <a ui-sref="dashboard.panels-wells">Panels and Wells</a>
                     </li>

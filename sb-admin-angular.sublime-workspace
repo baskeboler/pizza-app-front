@@ -4,6 +4,110 @@
 		"selected_items":
 		[
 			[
+				"ui",
+				"ui-select-choices"
+			],
+			[
+				"ng-bind",
+				"ng-bind-html	AngularJS"
+			],
+			[
+				"ng",
+				"ng-bind	AngularJS"
+			],
+			[
+				"ui-select",
+				"ui-select-match"
+			],
+			[
+				"$sce",
+				"angular: $sce"
+			],
+			[
+				"ng-bi",
+				"ng-bind-html	AngularJS"
+			],
+			[
+				"_re",
+				"_reduce	Reduces a collection to a value which is the accumulated result of running each element in the collection through the callback."
+			],
+			[
+				"_",
+				"_map	Creates an array of values by running each element in the collection through the callback."
+			],
+			[
+				"cl",
+				"clearForm"
+			],
+			[
+				"ped",
+				"pedido"
+			],
+			[
+				"ca",
+				"cargarClientes"
+			],
+			[
+				"item",
+				"item"
+			],
+			[
+				"lis",
+				"listaPlatos"
+			],
+			[
+				"carg",
+				"cargarPlatos"
+			],
+			[
+				"get",
+				"getList"
+			],
+			[
+				"cargar",
+				"cargarBebidas"
+			],
+			[
+				"remove",
+				"removeBebida"
+			],
+			[
+				"ng-re",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"carga",
+				"cargarListaBebidas"
+			],
+			[
+				"Beb",
+				"BebidasCtrl"
+			],
+			[
+				"Be",
+				"BebidasCtrl"
+			],
+			[
+				"pro",
+				"productos"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			],
+			[
+				"se",
+				"selectedClient"
+			],
+			[
+				"l",
+				"listaClientes"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS"
+			],
+			[
 				"loadMy",
 				"loadMyFiles"
 			],
@@ -26,10 +130,6 @@
 			[
 				"todo",
 				"todoType"
-			],
-			[
-				"_re",
-				"_remove	Removes all elements from an array that the callback returns truey for and returns an array of removed elements."
 			],
 			[
 				"line",
@@ -58,10 +158,6 @@
 			[
 				"sec",
 				"section	Tag"
-			],
-			[
-				"se",
-				"section	<section>"
 			],
 			[
 				"fw",
@@ -108,10 +204,6 @@
 				"$scope	AngularJS"
 			],
 			[
-				"con",
-				"controller	AngularJS"
-			],
-			[
 				"bac",
 				"background-size"
 			],
@@ -123,33 +215,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "Remote:   origin @ https://github.com/start-angular/sb-admin-angular.git\nLocal:    master ~/Documents/switch/sb-admin-angular\nHead:     2f82c5b Merge pull request #11 from beeman/gruntfile\n\n\nUnstaged changes:\n	Modified   app/scripts/app.js\n\nStaged changes:\n	Modified   .gitignore\n	Added      .jshintrc\n	Added      .project\n	Added      .tern-project\n	Modified   app/index.html\n	Modified   app/js/sb-admin-2.js\n	Modified   app/scripts/app.js\n	Added      app/scripts/controllers/ClienteCtrl.js\n	Modified   app/scripts/directives/sidebar/sidebar-search/sidebar-search.js\n	Modified   app/scripts/directives/sidebar/sidebar.html\n	Modified   app/scripts/directives/sidebar/sidebar.js\n	Modified   app/views/chart.html\n	Added      app/views/clientes/main.html\n	Modified   bower.json\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
-			"settings":
-			{
-				"buffer_size": 1536,
-				"line_ending": "Unix",
-				"name": "*git-status*: sb-admin-angular",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/scripts/app.js",
-			"settings":
-			{
-				"buffer_size": 5663,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/scripts/controllers/chartContoller.js",
-			"settings":
-			{
-				"buffer_size": 1743,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -159,16 +224,40 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "form",
+		"last_filter": "snippet sele",
 		"selected_items":
 		[
+			[
+				"snippet sele",
+				"Snippet: <select>"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"bea",
+				"HTMLBeautify"
+			],
 			[
 				"form",
 				"Format: Javascript"
 			],
 			[
+				"git",
+				"Git: Diff"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
 				"stat",
 				"Git: Status"
+			],
+			[
+				"html",
+				"HTMLBeautify"
 			],
 			[
 				"git-fl",
@@ -191,10 +280,6 @@
 				"Git: Push"
 			],
 			[
-				"git",
-				"Git: Status"
-			],
-			[
 				"ang",
 				"AngularJS: Rebuild Search Index"
 			],
@@ -205,10 +290,6 @@
 			[
 				"angular",
 				"AngularJS: Look Up Definition"
-			],
-			[
-				"html",
-				"HTMLBeautify"
 			],
 			[
 				"linter",
@@ -237,10 +318,6 @@
 			[
 				"renam",
 				"Emmet: Rename Tag"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
 			],
 			[
 				"ren",
@@ -331,10 +408,6 @@
 				"Git: Push"
 			],
 			[
-				"pull",
-				"Git: Pull"
-			],
-			[
 				"remot",
 				"Git: Add Remote"
 			],
@@ -374,16 +447,54 @@
 	[
 		"/home/victor/Documents/switch/sb-admin-angular",
 		"/home/victor/Documents/switch/sb-admin-angular/app",
-		"/home/victor/Documents/switch/sb-admin-angular/app/js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/dashboard",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/dashboard/stats",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/header",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/header/header-notification",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar",
-		"/home/victor/Documents/switch/sb-admin-angular/app/styles"
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar-search",
+		"/home/victor/Documents/switch/sb-admin-angular/app/styles",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/clientes",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/dashboard",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/pages",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/pedidos",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/productos",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-ui-select",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-ui-select/dist",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/lodash",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/ng-grid",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/restangular",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/restangular/dist",
+		"/home/victor/Documents/switch/sb-admin-angular/app"
 	],
 	"file_history":
 	[
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/pages/blank.html",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/app.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/ClienteCtrl.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/BebidasCtrl.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/PlatosCtrl.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/pedidos/pedidos.html",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/bootstrap/dist/css/bootstrap.css",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/productos/platos.html",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/PedidosCtrl.js",
+		"/home/victor/Documents/switch/sb-admin-angular/.jshintrc",
+		"/home/victor/Documents/switch/sb-admin-angular/app/views/clientes/main.html",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/ng-grid/README.md",
+		"/home/victor/Documents/switch/sb-admin-angular/app/index.html",
+		"/home/victor/Documents/switch/sb-admin-angular/Gruntfile.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-chart.js/angular-chart.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.html",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/chartContoller.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/Bebidas",
+		"/home/victor/Documents/switch/sb-admin-angular/bower.json",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/metisMenu/Gruntfile.js",
 		"/home/victor/Documents/switch/simple-angular-app/app/scripts/controllers/todo.js",
 		"/home/victor/Documents/switch/simple-angular-app/app/scripts/app.js",
 		"/home/victor/Documents/switch/simple-angular-app/bower_components/angular-ui-select/dist/select.css",
@@ -424,14 +535,9 @@
 		"/home/victor/.config/sublime-text-3/Packages/Grunt/SublimeGrunt.sublime-settings",
 		"/home/victor/.config/sublime-text-3/Packages/User/SublimeGrunt.sublime-settings",
 		"/home/victor/Documents/switch/sb-admin-angular/bower_components/oclazyload/dist/ocLazyLoad.js",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/chartContoller.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/main.js",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-chart.js/angular-chart.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/views/chart.html",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar-search/sidebar-search.js",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.html",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views/clientes/main.html",
 		"/home/victor/software/Aptana_Studio_3/AptanaStudio3.sh",
 		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-animate/angular-animate.js",
 		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular/angular.min.js",
@@ -495,23 +601,7 @@
 		"/home/victor/Documents/switch/geeklab201503/slides/index.md",
 		"/home/victor/Documents/switch/geeklab201503/slides/metas-de-diseno.md",
 		"/home/victor/Documents/switch/geeklab201503/slides/help.html",
-		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/theme/template/theme.scss",
-		"/home/victor/Documents/switch/geeklab201503/slides/ejemplo-cont.html",
-		"/home/victor/Documents/switch/geeklab201503/Gruntfile.js",
-		"/home/victor/.bash_profile",
-		"/home/victor/.bashrc",
-		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/test/examples/barebones.html",
-		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/.bin/strip-ansi",
-		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/.bin/has-ansi",
-		"/home/victor/Documents/switch/geeklab201503/.bowerrc",
-		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-build-control/Gruntfile.js",
-		"/home/victor/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/home/victor/.config/sublime-text-3/Packages/User/JSON.sublime-settings",
-		"/home/victor/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
-		"/home/victor/.nvm/nvm.sh",
-		"/home/victor/Documents/switch/geeklab201503/slides/ejemplo.html",
-		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt-contrib-jshint/node_modules/.bin/jshint",
-		"/home/victor/Documents/switch/geeklab201503/node_modules/grunt/node_modules/js-yaml/lib/js-yaml/exception.js"
+		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/theme/template/theme.scss"
 	],
 	"find":
 	{
@@ -533,9 +623,20 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"dropDown",
+			"close",
+			"minim",
+			"min",
+			"form-",
+			"Bebida",
+			"bebida",
+			"Bebida",
+			"Bebidas",
+			"wire",
+			"side",
 			"\"",
 			".\n",
 			"img",
@@ -574,6 +675,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Plato",
+			"plato",
+			"Plato",
+			"Platos",
 			"'"
 		],
 		"reverse": false,
@@ -585,103 +690,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1536,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								299,
-								299
-							]
-						],
-						"settings":
-						{
-							"__vi_external_disable": true,
-							"draw_white_space": "none",
-							"git_repo": "/home/victor/Documents/switch/sb-admin-angular",
-							"git_status": true,
-							"git_view": "status",
-							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 170.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/scripts/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5663,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4675,
-								4675
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2040.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/scripts/controllers/chartContoller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1743,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -742,7 +752,7 @@
 	},
 	"output.git-pull":
 	{
-		"height": 112.0
+		"height": 184.0
 	},
 	"output.git-push":
 	{
@@ -766,15 +776,79 @@
 		"selected_items":
 		[
 			[
+				"",
+				"app/scripts/controllers/chartContoller.js"
+			],
+			[
+				"side",
+				"app/scripts/directives/sidebar/sidebar.html"
+			],
+			[
+				"app",
+				"app/scripts/app.js"
+			],
+			[
+				"chart",
+				"bower_components/angular-chart.js/angular-chart.js"
+			],
+			[
+				"ped",
+				"app/scripts/controllers/PedidosCtrl.js"
+			],
+			[
+				"pedi",
+				"app/views/pedidos/pedidos.html"
+			],
+			[
+				"boot",
+				"bower_components/bootstrap/dist/css/bootstrap.css"
+			],
+			[
+				"clientes",
+				"app/views/clientes/main.html"
+			],
+			[
+				"boots",
+				"bower_components/bootstrap/dist/css/bootstrap.css"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"ap",
+				"app/scripts/app.js"
+			],
+			[
+				"bebids",
+				"app/views/productos/bebidas.html"
+			],
+			[
+				"bebidas",
+				"app/scripts/controllers/BebidasCtrl.js"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"gru",
+				"bower_components/metisMenu/Gruntfile.js"
+			],
+			[
+				"angular-cha",
+				"bower_components/angular-chart.js/angular-chart.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
 				"read",
 				"README.md"
 			],
 			[
 				"grun",
-				"Gruntfile.js"
-			],
-			[
-				"grunt",
 				"Gruntfile.js"
 			],
 			[
@@ -784,10 +858,6 @@
 			[
 				"video.js",
 				"bower_components/video.js/dist/video-js/video.dev.js"
-			],
-			[
-				"index",
-				"app/index.html"
 			],
 			[
 				"selec",
@@ -854,10 +924,6 @@
 				"bower_components/ng-grid/build/ng-grid.js"
 			],
 			[
-				"app",
-				"app/scripts/app.js"
-			],
-			[
 				"clie",
 				"app/scripts/controllers/ClienteCtrl.js"
 			],
@@ -874,16 +940,8 @@
 				"bower_components/angular-chart.js/angular-chart.js"
 			],
 			[
-				"",
-				"app/scripts/directives/sidebar/sidebar.html"
-			],
-			[
 				"chart.",
 				"app/views/chart.html"
-			],
-			[
-				"chart",
-				"app/scripts/controllers/chartContoller.js"
 			],
 			[
 				"ocla",
@@ -950,6 +1008,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/Documents/switch/simple-angular-app/simple-app.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -967,7 +1029,7 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 291.0,

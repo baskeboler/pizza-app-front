@@ -1,0 +1,63 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">{{vm.title}}</h1>
+
+			<!-- errors -->
+			<div ng-repeat="error in vm.errors" class="alert alert-danger alert-dismissable">
+				<button class="close" type="button" aria-hidden="true" ng-click="dismissError(error)">
+					x
+				</button>
+				<p>Status Code: {{error.status}}</p>
+				<p>{{error.message}}</p>
+			</div>
+			<!-- /errors -->
+			<form name="platoForm" role="form" ng-submit="vm.crearPlato()">
+				<div class="form-group">
+					<label>Nombre</label>
+					<input type="text" ng-model="vm.nueva.nombre" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label>Precio</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type="number" class="form-control" ng-model="vm.nueva.precio" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Descripcion</label>
+					<textarea ng-model="vm.nueva.descripcion" class="form-control">
+						
+					</textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit"><i class="fa fa-plus fa-fw"></i> Crear Plato</button>
+					<button class="btn btn-default" type="button" ng-click="vm.clearForm()"><i class="fa fa-eraser fa-fw"></i> Reset</button>
+				</div>
+			</form>
+			<!-- tabla platos -->
+			<table class="table">
+				<thead>
+					<tr>
+						<td>Nombre</td>
+						<td>Precio</td>
+						<td>Descripcion</td>
+						<td>Delete?</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="plato in vm.listaPlatos">
+						<td>{{plato.nombre}}</td>
+						<td>{{plato.precio | currency}}</td>
+						<td>{{plato.descripcion}}</td>
+						<td><button class="btn btn-danger" ng-click="vm.remove(plato)"><i class="fa fa-remove"></i></button></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- /tabla platos -->
+
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

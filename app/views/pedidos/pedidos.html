@@ -1,0 +1,143 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">{{vm.title}}</h1>
+
+			<!-- errors -->
+			<div ng-repeat="error in vm.errors" class="alert alert-danger alert-dismissable">
+				<button class="close" type="button" aria-hidden="true" ng-click="dismissError(error)">
+					x
+				</button>
+				<p>Status Code: {{error.status}}</p>
+				<p>{{error.message}}</p>
+			</div>
+
+			<!-- /errors -->
+			<form class="form" name="pedidoForm" role="form" ng-submit="vm.crearPedido()">
+				<div class="form-group">
+					<label>Cliente</label>
+					<div class="input-group">
+						<ui-select title="Seleccione un cliente ... "
+								   theme="bootstrap" ng-model="vm.pedido.cliente" on-select="vm.updateDireccion()">
+							<ui-select-match placeholder="Seleccione un cliente"> 
+								{{$select.selected.nombre}}
+							</ui-select-match>
+							<ui-select-choices repeat="cliente in vm.listaClientes|filter: $select.search">
+								<div ng-bind-html="vm.trustAsHtml((cliente.nombre|highlight: $select.search))">
+								</div>
+								<small ng-bind-html="vm.trustAsHtml((cliente.direccion|highlight: $select.search))"></small>
+								<small ng-bind-html="vm.trustAsHtml((cliente.telefono|highlight: $select.search))"></small>
+							</ui-select-choices>	   
+						
+						</ui-select>
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+						</div>
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<label>Direccion</label>
+					<input placeholder="Ingrese la direccion." type="text" class="form-control" ng-model="vm.pedido.direccion" required>
+				</div>
+				<div class="row">
+					<div class="col col-md-6">
+						<div class="form-group">
+							<label>Bebidas</label>
+							<div class="input-group">
+								<ui-select title="Seleccione una bebida ...." theme="bootstrap" ng-model="vm.itemBebida.producto">
+									<ui-select-match placeholder="Seleccione una bebida ....">
+										{{$select.selected.nombre}}
+									</ui-select-match>	
+									<ui-select-choices repeat="bebida in vm.listaBebidas|filter: $select.search">
+										<div ng-bind-html="vm.trustAsHtml((bebida.nombre|highlight: $select.search))"></div> 
+								
+									</ui-select-choices>
+								
+								</ui-select>
+								
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-primary" ng-click="vm.addItem(vm.itemBebida)">
+										<i class="fa fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Platos</label>
+							<div class="input-group">
+								<ui-select ng-model="vm.itemPlato.producto" theme="bootstrap" 
+											title="Seleccione un plato ... ">
+									<ui-select-match placeholder="Seleccione un plato ....">
+										{{$select.selected.nombre}}
+									</ui-select-match>
+									<ui-select-choices repeat="plato in vm.listaPlatos|filter: $select.search">
+										<div ng-bind-html="vm.trustAsHtml((plato.nombre|highlight: $select.search))"></div>
+									</ui-select-choices>
+								</ui-select>
+								
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-primary" ng-click="vm.addItem(vm.itemPlato)"><i class="fa fa-plus"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+								Items del Pedido
+								<div class="close" ng-click="vm.collapseItems=!vm.collapseItems"><i class="fa fa-minus"></i></div>
+								</h3>
+							</div>
+							<div class="panel-body" collapse="vm.collapseItems">
+								<!-- tabla bebidas -->
+								<table class="table table-responsive">
+									<thead>
+										<tr>
+											<td>Nombre</td>
+											<td>Precio</td>
+											<td>Cantidad</td>
+											<td>Subtotal</td>
+											<td>Delete?</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in vm.items">
+											<td>{{item.producto.nombre}}</td>
+											<td>{{item.producto.precio | currency}}</td>
+											<td><input type="number" ng-model="item.cantidad" ng-change="vm.calcularTotal()"></td>
+											<td>{{item.producto.precio * item.cantidad | currency}}</td>
+											<td><button type="button" class="btn btn-danger btn-xs btn-circle" ng-click="vm.removeItem(item)"><i class="fa fa-fw fa-remove"></i></button></td>
+										</tr>
+									</tbody>
+								</table>
+								<!-- /tabla bebidas -->
+							</div>
+							<!-- /.panel-body-->
+							<div class="panel-footer">
+								<strong>Total: {{vm.total|currency}}</strong>
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">
+							<i class="fa fa-plus fa-fw"></i> Crear Pedido
+						</button>
+						<button class="btn btn-default" type="reset" ng-click="vm.clearForm()">
+							<i class="fa fa-eraser fa-fw"></i> Reset
+						</button>
+					</div>
+				</div>
+			</form>
+		
+
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

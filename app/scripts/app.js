@@ -14,9 +14,39 @@
       'ui.router',
       'ui.bootstrap',
       'angular-loading-bar',
-      'ngLodash',
-      'ngGrid'
+      'ngGrid',
+      'restangular'
     ])
+    .config(['RestangularProvider',function(RestangularProvider) {
+      RestangularProvider.setBaseUrl('http://localhost:8080');
+      RestangularProvider.addResponseInterceptor(function(data, operation, what) {
+        if (what === 'clientes') {
+          if (operation === 'getList') {
+            return (data._embedded)?data._embedded.clientes:[];
+          }
+        }
+        if (what === 'bebidas') {
+          if (operation === 'getList') {
+            return (data._embedded)?data._embedded.bebidas:[];
+          }
+        }
+        if (what === 'platos') {
+          if (operation === 'getList') {
+            return (data._embedded)?data._embedded.platos:[];
+          }
+        }
+        if (what === 'pedidos') {
+          if (operation === 'getList') {
+            return (data._embedded)?data._embedded.pedidos:[];
+          }
+        }
+      });
+      RestangularProvider.setRestangularFields({
+        selfLink: '_links.self.href'
+      });
+/*      RestangularProvider.setDefaultHeaders({
+      });*/
+    }])
     .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
       $ocLazyLoadProvider.config({
@@ -57,12 +87,16 @@
             serie: true,
             files: [
               'bower_components/Chart.js/Chart.min.js',
-              'bower_components/angular-chart.js/dist/angular-chart.js',
-              'bower_components/angular-chart.js/dist/angular-chart.css'
+              'bower_components/angular-chart.js/dist/angular-chart.css',
+              'bower_components/angular-chart.js/dist/angular-chart.js'
+            ]
+          }, {
+            name: 'ui.select',
+            files: [
+              'bower_components/angular-ui-select/dist/select.js',
+              'bower_components/angular-ui-select/dist/select.css'
             ]
           }
-
-
         ]
       });
 
@@ -78,9 +112,50 @@
                 $ocLazyLoad.load('toggle-switch'),
                 $ocLazyLoad.load('ngAnimate'),
                 $ocLazyLoad.load('ngCookies'),
-                $ocLazyLoad.load('ngResource'),
                 $ocLazyLoad.load('ngSanitize'),
-                $ocLazyLoad.load('ngTouch');
+                $ocLazyLoad.load('ui.select');
+            }
+          }
+        })
+        .state('dashboard.bebidas', {
+          url: '/bebidas',
+          templateUrl: '/views/productos/bebidas.html',
+          controller: 'BebidasController',
+          controllerAs: 'vm',
+          resolve: {
+            loadMyControllers: function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: ['scripts/controllers/BebidasCtrl.js']
+              });
+            }
+          }
+        })
+        .state('dashboard.platos', {
+          url: '/platos',
+          templateUrl: '/views/productos/platos.html',
+          controller: 'PlatosController',
+          controllerAs: 'vm',
+          resolve: {
+            loadMyControllers: function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: ['scripts/controllers/PlatosCtrl.js']
+              });
+            }
+          }
+        })
+        .state('dashboard.pedidos', {
+          url: '/pedidos',
+          templateUrl: '/views/pedidos/pedidos.html',
+          controller: 'PedidosController',
+          controllerAs: 'vm',
+          resolve: {
+            loadMyControllers: function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: ['scripts/controllers/PedidosCtrl.js']
+              });
             }
           }
         })
@@ -134,12 +209,8 @@
           controller: 'ChartCtrl',
           resolve: {
             loadMyFiles: function($ocLazyLoad) {
-              return $ocLazyLoad.load('chart.js'), 
-                $ocLazyLoad.load({
-                  name: 'sbAdminApp',
-                  files: ['scripts/controllers/chartContoller.js']
-                }
-              );
+              return $ocLazyLoad.load('chart.js'),
+                $ocLazyLoad.load('scripts/controllers/chartContoller.js'); 
             }
           }
         })

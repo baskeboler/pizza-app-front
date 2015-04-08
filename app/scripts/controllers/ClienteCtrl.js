@@ -4,14 +4,31 @@
 * Description
 */
 angular.module('sbAdminApp')
-.controller('ClienteController', function($scope, $resource, $log, lodash){
+.controller('ClienteController', function($scope, Restangular, $log){
 	$scope.titulo = 'Cosa de clientes';
-	$scope.clientes = $resource('http://localhost:8080/clientes/:id', {}, {
-		query: {
-			method: 'GET',
-			isArray: false
-		}
+	$scope.clientes = Restangular.all('clientes');
+	$scope.clientes.getList().then(function(result) {
+		$log.debug(result);
+		$scope.clientes = result;
+		$scope.listaClientes = result;
+		$scope.numClientes = $scope.listaClientes.length;
 	});
+	$scope.selectedClient = [];
+	$scope.clearSelection = function  () {
+		// body...
+		$scope.selectedClient.pop();
+	};
+
+	$scope.deleteSelection = function() {
+		$scope.selectedClient[0].remove().then(function(){
+
+			_.remove($scope.listaClientes, function (argument) {
+				return argument === $scope.selectedClient[0]
+			});
+			$scope.selectedClient.pop();
+		});
+	};
+
 	$scope.gOpts = {
 		columnDefs: [
 			{
@@ -24,7 +41,9 @@ angular.module('sbAdminApp')
 			}
 		],
 		data: 'listaClientes',
-		jqueryUITheme: true
+		jqueryUITheme: true,
+		selectedItems: $scope.selectedClient,
+		multiSelect: false
 	};
 
 	$scope.nuevo = {
@@ -32,15 +51,16 @@ angular.module('sbAdminApp')
 	};
 
 	$scope.crearCliente = function() {
-		$scope.clientes.save($scope.nuevo, function() {
-			$log.log('hola');
+		$scope.clientes.post($scope.nuevo).then(function(){
+			$scope.listaClientes.push($scope.nuevo);
+			$scope.nuevo = {};
 		});
 	};
 
-	$scope.clientes.query({}, function (data) {
+	/*$scope.clientes.query({}, function (data) {
 		$scope.listaClientes = data._embedded.clientes;
 		$scope.numClientes = $scope.listaClientes.length;
 		// body...
 
-	});
+	});*/
 });
