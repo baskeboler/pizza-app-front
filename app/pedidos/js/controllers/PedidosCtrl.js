@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('sbAdminApp').controller('PedidosController', PedidosController);
 
-	PedidosController.$inject = ['Restangular', '$log', '$sce'];
+	PedidosController.$inject = ['Restangular', '$log', '$sce', '$modal'];
 
-	function PedidosController (Restangular, $log, $sce) {
+	function PedidosController (Restangular, $log, $sce, $modal) {
 		var vm = this;
 		vm.title = 'Pedidos';
 		vm.pedido = {};

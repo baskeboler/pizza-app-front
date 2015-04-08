@@ -119,42 +119,42 @@
         })
         .state('dashboard.bebidas', {
           url: '/bebidas',
-          templateUrl: '/views/productos/bebidas.html',
+          templateUrl: '/productos/views/bebidas.html',
           controller: 'BebidasController',
           controllerAs: 'vm',
           resolve: {
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/BebidasCtrl.js']
+                files: ['productos/js/controllers/BebidasCtrl.js']
               });
             }
           }
         })
         .state('dashboard.platos', {
           url: '/platos',
-          templateUrl: '/views/productos/platos.html',
+          templateUrl: '/productos/views/platos.html',
           controller: 'PlatosController',
           controllerAs: 'vm',
           resolve: {
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/PlatosCtrl.js']
+                files: ['productos/js/controllers/PlatosCtrl.js']
               });
             }
           }
         })
         .state('dashboard.pedidos', {
           url: '/pedidos',
-          templateUrl: '/views/pedidos/pedidos.html',
+          templateUrl: '/pedidos/views/pedidos.html',
           controller: 'PedidosController',
           controllerAs: 'vm',
           resolve: {
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/PedidosCtrl.js']
+                files: ['pedidos/js/controllers/PedidosCtrl.js']
               });
             }
           }
@@ -179,14 +179,18 @@
           }
         })
         .state('dashboard.clientes', {
-          templateUrl: '/views/clientes/main.html',
+          templateUrl: 'clientes/views/main.html',
           controller: 'ClienteController',
+          controllerAs: 'vm',
           url: '/clientes',
           resolve: {
             loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/ClienteCtrl.js']
+                files: [
+                  'clientes/js/controllers/ClienteCtrl.js',
+                  'clientes/js/services/Cliente.js'
+                ]
               });
             }
           }
