@@ -20,7 +20,7 @@
 		vm.cargarLista();
 
 		function crearNuevoPlato () {
-			Plato.post(vm.nueva).then(ok, showErrors);
+			Plato.create(vm.nueva).then(ok, showErrors);
 
 			function ok () {
 				vm.listaPlatos.push(vm.nueva);

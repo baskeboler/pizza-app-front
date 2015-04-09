@@ -3,9 +3,9 @@
 
 	angular.module("sbAdminApp").controller('BebidasController', BebidasCtrl);
 
-	BebidasCtrl.$inject = ['$log', 'Bebida'];
+	BebidasCtrl.$inject = ['$log', 'Bebida', '$timeout'];
 
-	function BebidasCtrl($log, Bebida) {
+	function BebidasCtrl($log, Bebida, $timeout) {
 		var vm = this;
 		vm.title = 'Bebidas';
 		vm.nueva = {};
@@ -17,7 +17,7 @@
 		vm.clearForm = clearForm;
 		vm.remove = removeBebida;
 
-		vm.cargarLista();
+		$timeout(vm.cargarLista, 1000);
 
 		function crearBebida () {
 			Bebida.create(vm.nueva).then(ok, showErrors);

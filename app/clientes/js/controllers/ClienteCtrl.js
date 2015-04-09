@@ -20,11 +20,19 @@
 			}, {
 				field: 'email',
 				displayName: 'E-mail'
+			}, {
+				field: 'telefono',
+				displayName: 'Telefono'
+			}, {
+				field: 'direccion',
+				displayName: 'Direccion'
 			}],
 			data: 'vm.listaClientes',
 			jqueryUITheme: true,
 			selectedItems: vm.selectedClient,
-			multiSelect: false
+			multiSelect: false,
+			showFilter: true,
+			enableSorting: true
 		};
 		
 		vm.clearSelection = clearSelection;

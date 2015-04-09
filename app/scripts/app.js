@@ -90,7 +90,6 @@
             files: ['bower_components/angular-touch/angular-touch.js']
           }, {
             name: 'chart.js',
-            serie: true,
             files: [
               'bower_components/Chart.js/Chart.min.js',
               'bower_components/angular-chart.js/dist/angular-chart.css',
@@ -252,7 +251,9 @@
           controller: 'ChartCtrl',
           resolve: {
             loadMyFiles: function($ocLazyLoad) {
-              return $ocLazyLoad.load('scripts/controllers/chartContoller.js'); 
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: ['scripts/controllers/chartContoller.js']}); 
             }
           }
         })

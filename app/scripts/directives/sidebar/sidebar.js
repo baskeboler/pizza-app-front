@@ -18,6 +18,7 @@
           $scope.selectedMenu = 'dashboard';
           $scope.collapseVar = 0;
           $scope.multiCollapseVar = 0;
+          $scope.multiCollapseVar2 = 0
           $log.debug('inside sidebar controller');
 
           $scope.check = function(x) {
@@ -35,6 +36,15 @@
               $scope.multiCollapseVar = 0;
             } else {
               $scope.multiCollapseVar = y;
+            }
+          };
+
+          $scope.multiCheck2 = function(y) {
+
+            if (y === $scope.multiCollapseVar2) {
+              $scope.multiCollapseVar2 = 0;
+            } else {
+              $scope.multiCollapseVar2 = y;
             }
           };
         }

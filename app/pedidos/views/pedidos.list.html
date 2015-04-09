@@ -1,24 +1,43 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Pedidos</h1>
+			<h1 class="page-header">
+				Pedidos <small>Listar</small>
+			</h1>
 		</div>
+		<ol class="breadcrumb">
+			<li><a ui-sref="dashboard.pedidos">Pedidos</a></li>
+			<li class="active"><a ui-sref="dashboard.pedidos.list">Listar</a></li>
+		</ol>
 		<!-- /.col-lg-12 -->
 	</div>
 	<!-- /.row -->
+	<style>
+	.list-group-item.highlighted {
+		color: white: ;
+		background-color: rgb(51, 122, 183);
+	}
+
+	</style>
 	<div class="row">	
 		<div class="panel panel-default">
 			<div class="panel-heading">Pedidos</div>
 			<div class="panel-body">
+				<div class="well">
+					<p>Seleccione fecha:</p>
+					<p>
+						<select class="form-control" placeholder="seleccione una fecha" ng-model="vm.filtroFecha" ng-options="fecha as fecha for fecha in vm.fechas" ng-change="vm.updatePedidos()"></select>
+					</p>
+				</div>
 				<div class="list-group">
-					<div class="list-group-item" ng-repeat="pedido in vm.listaPedidos">
+					<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" ng-repeat="pedido in vm.listaPedidos" ng-click="vm.highlighted=pedido" ng-class="{'highlighted': pedido===vm.highlighted}">
 						<h4 class="list-group-item-heading">
 							{{pedido.cliente.nombre}}
 						</h4>
 						<p class="list-group-item-text">
 							<ul>
 								<li>{{pedido.direccion}}</li>
-								<li>{{pedido.fecha}}</li>
+								<li>{{pedido.fecha | date}}</li>
 							</ul>
 						</p>
 					</div>
