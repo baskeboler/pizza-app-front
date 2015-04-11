@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				<i class="fa fa-shopping-cart fa-fw"></i>Pedidos <small>Listar</small>
+				<i class="fa fa-exclamation-circle fa-fw"></i>Pedidos Pendientes <small>Listar</small>
 			</h1>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -16,19 +16,15 @@
 
 	</style>
 	<div class="row">	
-		<div class="col col-sm-6">
+		<div class="col col-sm-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Pedidos</div>
 				<div class="panel-body">
-					<p>Seleccione fecha:
-						<select class="form-control" placeholder="seleccione una fecha" ng-model="vm.filtroFecha" ng-options="fecha for fecha in vm.fechas" ng-change="vm.updatePedidos()"></select>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" ng-model="vm.filtrarCompletos" > Filtrar completos</label>
-						</div>
-					</p>
-					<div class="list-group">
-						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" ng-repeat="pedido in vm.listaPedidos track by $index " ng-class="{'list-group-item-danger': !pedido.estado.completo &&pedido.alerta, 'list-group-item-success': pedido.estado.completo}">
+					
+					<div class="list-group col col-md-4">
+						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" 
+							ng-repeat="pedido in vm.listaPedidos track by $index " 
+							ng-class="{'list-group-item-danger': !pedido.estado.completo &&pedido.alerta, 'list-group-item-success': pedido.estado.completo}">
 							<h4 class="list-group-item-heading">
 								{{pedido.cliente.nombre}}
 								<a class="close" ng-click="vm.remove(pedido)">&times;</a>
@@ -72,25 +68,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="col col-sm-6">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					Información General
-				</div>
-				<div class="panel-body">
-					<p>Informacion relativa a los pedidos seleccionados</p>
-					<dl class="dl-horizontal">
-						<dt ng-show="vm.filtroFecha">Fecha</dt>
-						<dd ng-show="vm.filtroFecha">{{vm.filtroFecha}}</dd>
-						<dt>Cantidad de Pedidos</dt>
-						<dd>{{vm.listaPedidos.length}}</dd>
-						<dt>Total Ventas</dt>
-						<dd>{{vm.getTotal(vm.listaPedidos) | currency}}</dd>
 
-					</dl>
-	
-				</div>
-			</div>
-		</div>
 	</div>
 </div>

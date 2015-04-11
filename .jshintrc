@@ -22,7 +22,8 @@
         //"anotherCoolGlobal",
         //"iLoveDouglas"
         "angular",
-        "_"
+        "_",
+        "moment"
     ],
  
  

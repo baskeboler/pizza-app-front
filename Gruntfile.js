@@ -1,28 +1,26 @@
-(function() { // Generated on 2015-01-21 using generator-angular 0.9.2
-  'use strict';
-
+(function () { // Generated on 2015-01-21 using generator-angular 0.9.2
+  'use strict'
   // # Globbing
   // for performance reasons we're only matching one level down:
   // 'test/spec/{,*/}*.js'
   // use this if you want to recursively match all subfolders:
   // 'test/spec/**/*.js'
-  module.exports = function(grunt) {
-
+  /*globals module:false, require:false*/
+  module.exports = function (grunt) {
     // Load grunt tasks automatically
-    require('load-grunt-tasks')(grunt);
+    require('load-grunt-tasks')(grunt)
 
     // Time how long tasks take. Can help when optimizing build times
-    require('time-grunt')(grunt);
+    require('time-grunt')(grunt)
 
     // Configurable paths for the application
     var appConfig = {
       app: require('./bower.json').appPath || 'app',
       dist: 'dist'
-    };
+    }
 
     // Define the configuration for all the tasks
     grunt.initConfig({
-
       // Project settings
       yeoman: appConfig,
 
@@ -73,7 +71,7 @@
         livereload: {
           options: {
             open: true,
-            middleware: function(connect) {
+            middleware: function (connect) {
               return [
                 connect.static('.tmp'),
                 connect().use(
@@ -81,14 +79,14 @@
                   connect.static('./bower_components')
                 ),
                 connect.static(appConfig.app)
-              ];
+              ]
             }
           }
         },
         test: {
           options: {
             port: 9001,
-            middleware: function(connect) {
+            middleware: function (connect) {
               return [
                 connect.static('.tmp'),
                 connect.static('test'),
@@ -97,7 +95,7 @@
                   connect.static('./bower_components')
                 ),
                 connect.static(appConfig.app)
-              ];
+              ]
             }
           }
         },
@@ -237,7 +235,7 @@
         },
         options: {
           mangle: false
-        },
+        }
       },
       // concat: {
       //   dist: {}
@@ -292,7 +290,7 @@
             expand: true,
             cwd: '<%= yeoman.app %>/scripts',
             src: '**/*.js',
-            dest: '<%= yeoman.dist %>/scripts',
+            dest: '<%= yeoman.dist %>/scripts'
           }]
         }
       },
@@ -308,18 +306,17 @@
       copy: {
         dist: {
           files: [{
-              expand: true,
-              dot: true,
-              cwd: '<%= yeoman.app %>',
-              dest: '<%= yeoman.dist %>',
-              src: ['**']
-            }, {
-
-              expand: true,
-              cwd: 'bower_components',
-              dest: '<%= yeoman.dist %>/bower_components',
-              src: ['**']
-            },
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>',
+            src: ['**']
+          }, {
+            expand: true,
+            cwd: 'bower_components',
+            dest: '<%= yeoman.dist %>/bower_components',
+            src: ['**']
+          },
 
             {
               expand: true,
@@ -364,12 +361,11 @@
           singleRun: true
         }
       }
-    });
+    })
 
-
-    grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
+    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
       if (target === 'dist') {
-        return grunt.task.run(['build', 'connect:dist:keepalive']);
+        return grunt.task.run(['build', 'connect:dist:keepalive'])
       }
 
       grunt.task.run([
@@ -378,13 +374,13 @@
         'autoprefixer',
         'connect:livereload',
         'watch'
-      ]);
-    });
+      ])
+    })
 
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
-      grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-      grunt.task.run(['serve:' + target]);
-    });
+    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+      grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.')
+      grunt.task.run(['serve:' + target])
+    })
 
     grunt.registerTask('test', [
       'clean:server',
@@ -392,7 +388,7 @@
       'autoprefixer',
       'connect:test',
       'karma'
-    ]);
+    ])
 
     grunt.registerTask('build', [
       'clean:dist',
@@ -402,12 +398,12 @@
       'ngAnnotate',
       'uglify',
       'htmlmin'
-    ]);
+    ])
 
     grunt.registerTask('default', [
       'newer:jshint',
       'test',
       'build'
-    ]);
-  };
+    ])
+  }
 })()

@@ -1,5 +1,5 @@
-(function() {
-  'use strict';
+(function () {
+  'use strict'
   /**
    * @ngdoc overview
    * @name sbAdminApp
@@ -8,6 +8,8 @@
    *
    * Main module of the application.
    */
+
+  /*globals angular:false*/
   angular
     .module('sbAdminApp', [
       'oc.lazyLoad',
@@ -23,99 +25,105 @@
       'ngFx',
       'chart.js'
     ])
-    .config(['RestangularProvider',function(RestangularProvider) {
-      RestangularProvider.setBaseUrl('http://localhost:8080');
-      RestangularProvider.addResponseInterceptor(function(data, operation, what) {
+    .config(['RestangularProvider', function (RestangularProvider) {
+      RestangularProvider.setBaseUrl('http://localhost:8080')
+      RestangularProvider.addResponseInterceptor(function (data, operation, what) {
         if (what === 'clientes') {
           if (operation === 'getList') {
-            return (data._embedded)?data._embedded.clientes:[];
+            return (data._embedded) ? data._embedded.clientes : []
           }
         }
         if (what === 'bebidas') {
           if (operation === 'getList') {
-            return (data._embedded)?data._embedded.bebidas:[];
+            return (data._embedded) ? data._embedded.bebidas : []
           }
         }
         if (what === 'platos') {
           if (operation === 'getList') {
-            return (data._embedded)?data._embedded.platos:[];
+            return (data._embedded) ? data._embedded.platos : []
           }
         }
         if (what === 'pedidos') {
-          if (operation === 'getList') {
-            return (data._embedded)?data._embedded.pedidos:[];
+          if (operation === 'getList' || operation === 'customGETLIST') {
+            return (data._embedded) ? data._embedded.pedidos : []
           }
         }
-      });
+        if (what === 'search/obtenerPedidosPendientes') {
+          if (operation === 'getList') {
+            return (data._embedded) ? data._embedded.pedidos : []
+          }
+        }
+      })
       RestangularProvider.setRestangularFields({
         selfLink: '_links.self.href'
-      });
-/*      RestangularProvider.setDefaultHeaders({
-      });*/
+      })
+    /*      RestangularProvider.setDefaultHeaders({
+          });*/
     }])
-    .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-
+    .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       $ocLazyLoadProvider.config({
         debug: true,
         events: true,
         modules: [{
-            name: 'sbAdminApp',
-            reconfig: false,
-            files: [
-              'scripts/directives/header/header.js',
-              'scripts/directives/header/header-notification/header-notification.js',
-              'scripts/directives/sidebar/sidebar.js',
-              'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
-            ]
-          }, {
-            name: 'toggle-switch',
-            files: [
-              "bower_components/angular-toggle-switch/angular-toggle-switch.min.js",
-              "bower_components/angular-toggle-switch/angular-toggle-switch.css"
-            ]
-          }, {
-            name: 'ngAnimate',
-            files: ['bower_components/angular-animate/angular-animate.js']
-          }, {
-            name: 'ngCookies',
-            files: ['bower_components/angular-cookies/angular-cookies.js']
-          }, {
-            name: 'ngResource',
-            files: ['bower_components/angular-resource/angular-resource.js']
-          }, {
-            name: 'ngSanitize',
-            files: ['bower_components/angular-sanitize/angular-sanitize.js']
-          }, {
-            name: 'ngTouch',
-            files: ['bower_components/angular-touch/angular-touch.js']
-          }, {
-            name: 'chart.js',
-            files: [
-              'bower_components/Chart.js/Chart.min.js',
-              'bower_components/angular-chart.js/dist/angular-chart.css',
-              'bower_components/angular-chart.js/dist/angular-chart.js'
-            ]
-          }, {
-            name: 'ui.select',
-            files: [
-              'bower_components/angular-ui-select/dist/select.js',
-              'bower_components/angular-ui-select/dist/select.css'
-            ]
-          }
+          name: 'sbAdminApp',
+          reconfig: false,
+          files: [
+            'scripts/directives/header/header.js',
+            'scripts/directives/header/header-notification/header-notification.js',
+            'scripts/directives/sidebar/sidebar.js',
+            'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+          ]
+        }, {
+          name: 'toggle-switch',
+          files: [
+            'bower_components/angular-toggle-switch/angular-toggle-switch.min.js',
+            'bower_components/angular-toggle-switch/angular-toggle-switch.css'
+          ]
+        }, {
+          name: 'ngAnimate',
+          files: ['bower_components/angular-animate/angular-animate.js']
+        }, {
+          name: 'ngCookies',
+          files: ['bower_components/angular-cookies/angular-cookies.js']
+        }, {
+          name: 'ngResource',
+          files: ['bower_components/angular-resource/angular-resource.js']
+        }, {
+          name: 'ngSanitize',
+          files: ['bower_components/angular-sanitize/angular-sanitize.js']
+        }, {
+          name: 'ngTouch',
+          files: ['bower_components/angular-touch/angular-touch.js']
+        }, {
+          name: 'chart.js',
+          files: [
+            'bower_components/Chart.js/Chart.min.js',
+            'bower_components/angular-chart.js/dist/angular-chart.css',
+            'bower_components/angular-chart.js/dist/angular-chart.js'
+          ]
+        }, {
+          name: 'ui.select',
+          files: [
+            'bower_components/angular-ui-select/dist/select.js',
+            'bower_components/angular-ui-select/dist/select.css'
+          ]
+        }
         ]
-      });
+      })
 
-      $urlRouterProvider.otherwise('/dashboard/home');
+      $urlRouterProvider.otherwise('/dashboard/home')
 
       $stateProvider
         .state('dashboard', {
           url: '/dashboard',
           templateUrl: '/views/dashboard/main.html',
           resolve: {
-            loadMyDirectives: function($ocLazyLoad) {
-              return $ocLazyLoad.load('sbAdminApp'),
+            loadMyDirectives: function ($ocLazyLoad) {
+              return [
+                $ocLazyLoad.load('sbAdminApp'),
                 $ocLazyLoad.load('toggle-switch'),
-                $ocLazyLoad.load('ngCookies');
+                $ocLazyLoad.load('ngCookies')
+              ]
             }
           }
         })
@@ -125,14 +133,14 @@
           controller: 'BebidasController',
           controllerAs: 'vm',
           resolve: {
-            loadMyControllers: function($ocLazyLoad) {
+            loadMyControllers: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
                   'productos/js/controllers/BebidasCtrl.js',
                   'productos/js/services/Bebida.js'
                 ]
-              });
+              })
             }
           }
         })
@@ -142,21 +150,33 @@
           controller: 'PlatosController',
           controllerAs: 'vm',
           resolve: {
-            loadMyControllers: function($ocLazyLoad) {
+            loadMyControllers: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
                   'productos/js/controllers/PlatosCtrl.js',
                   'productos/js/services/Plato.js'
                 ]
-              });
+              })
             }
           }
         })
         .state('dashboard.pedidos', {
           url: '/pedidos',
           abstract: true,
-          template: '<ui-view />'
+          template: '<ui-view />',
+          resolve: {
+            load: function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: [
+                  'pedidos/js/services/Pedido.js',
+                  'pedidos/js/filters/FromNow.js',
+                  'pedidos/js/services/Pedido.js'
+                ]
+              })
+            }
+          }
         })
         .state('dashboard.pedidos.list', {
           url: '/list',
@@ -168,11 +188,25 @@
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
-                  'pedidos/js/controllers/ListaPedidosCtrl.js',
-                  'pedidos/js/services/Pedido.js'
+                  'pedidos/js/controllers/ListaPedidosCtrl.js'
                 ]
               })
-              // body...
+            }
+          }
+        })
+        .state('dashboard.pedidos.pendientes', {
+          url: '/pendientes',
+          templateUrl: '/pedidos/views/pedidos.pendientes.html',
+          controller: 'ListaPedidosPendientesController',
+          controllerAs: 'vm',
+          resolve: {
+            load: function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: [
+                  'pedidos/js/controllers/PedidosPendientesCtrl.js'
+                ]
+              })
             }
           }
         })
@@ -182,7 +216,7 @@
           controller: 'PedidosController',
           controllerAs: 'vm',
           resolve: {
-            loadMyControllers: function($ocLazyLoad) {
+            loadMyControllers: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -190,10 +224,9 @@
                   'clientes/js/controllers/CrearClienteModalInstanceCtrl.js',
                   'clientes/js/services/Cliente.js',
                   'productos/js/services/Bebida.js',
-                  'productos/js/services/Plato.js',
-                  'pedidos/js/services/Pedido.js'
+                  'productos/js/services/Plato.js'
                 ]
-              });
+              })
             }
           }
         })
@@ -202,7 +235,7 @@
           controller: 'MainCtrl',
           templateUrl: '/views/dashboard/home.html',
           resolve: {
-            loadMyFiles: function($ocLazyLoad) {
+            loadMyFiles: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -212,7 +245,7 @@
                   'scripts/directives/chat/chat.js',
                   'scripts/directives/dashboard/stats/stats.js'
                 ]
-              });
+              })
             }
           }
         })
@@ -222,14 +255,14 @@
           controllerAs: 'vm',
           url: '/clientes',
           resolve: {
-            loadMyControllers: function($ocLazyLoad) {
+            loadMyControllers: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
                   'clientes/js/controllers/ClienteCtrl.js',
                   'clientes/js/services/Cliente.js'
                 ]
-              });
+              })
             }
           }
         })
@@ -250,10 +283,10 @@
           url: '/chart',
           controller: 'ChartCtrl',
           resolve: {
-            loadMyFiles: function($ocLazyLoad) {
+            loadMyFiles: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/chartContoller.js']}); 
+              files: ['scripts/controllers/chartContoller.js']})
             }
           }
         })
@@ -284,6 +317,6 @@
         .state('dashboard.grid', {
           templateUrl: 'views/ui-elements/grid.html',
           url: '/grid'
-        });
-    }]);
-})();
+        })
+    }])
+})()

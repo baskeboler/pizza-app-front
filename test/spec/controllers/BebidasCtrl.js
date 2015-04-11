@@ -1,17 +1,17 @@
 (function () {
   'use strict'
   /*globals describe:false, beforeEach:false, module:false, inject:false*/
-  describe('Controller: MainCtrl', function () {
+  describe('Controller: BebidasController', function () {
     // load the controller's module
     beforeEach(module('sbAdminApp'))
 
-    var MainCtrl,
+    var BebidasController,
       scope
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope) {
       scope = $rootScope.$new()
-      MainCtrl = $controller('MainCtrl', {
+      BebidasController = $controller('BebidasController', {
         $scope: scope
       })
     }))
