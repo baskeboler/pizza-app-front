@@ -23,10 +23,18 @@
       'cgNotify',
       'ngAnimate',
       'ngFx',
-      'chart.js'
+      'chart.js',
+      'ngCookies'
     ])
-    .config(['RestangularProvider', function (RestangularProvider) {
-      RestangularProvider.setBaseUrl('http://localhost:8080')
+    .config(function($httpProvider) {
+      $httpProvider.interceptors.push('loginInterceptor');
+      //$httpProvider.defaults.headers.common['Accept'] = 'application/json, text/plain, * / *'
+      //$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+      //$httpProvider.defaults.withCredentials = true;
+      //$httpProvider.defaults.headers.common.JSESSIONID = 
+    })
+    .config(['RestangularProvider', '$httpProvider', function (RestangularProvider, $httpProvider) {
+      RestangularProvider.setBaseUrl('http://localhost:8080/api')
       RestangularProvider.addResponseInterceptor(function (data, operation, what) {
         if (what === 'clientes') {
           if (operation === 'getList') {
@@ -57,8 +65,12 @@
       RestangularProvider.setRestangularFields({
         selfLink: '_links.self.href'
       })
-    /*      RestangularProvider.setDefaultHeaders({
-          });*/
+      /*RestangularProvider.addFullRequestInterceptor(
+        function (element, operation, route, url, headers, params, httpConfig) {
+          return {
+            headers: $httpProvider.defaults.headers.common
+          };
+      });*/
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       $ocLazyLoadProvider.config({
@@ -71,7 +83,10 @@
             'scripts/directives/header/header.js',
             'scripts/directives/header/header-notification/header-notification.js',
             'scripts/directives/sidebar/sidebar.js',
-            'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+            'scripts/directives/sidebar/sidebar-search/sidebar-search.js' /*,
+            'scripts/services/ApiHost.js',
+            'security/services/Principal.js',
+            'security/services/Authorization.js'*/
           ]
         }, {
           name: 'toggle-switch',
@@ -107,8 +122,7 @@
             'bower_components/angular-ui-select/dist/select.js',
             'bower_components/angular-ui-select/dist/select.css'
           ]
-        }
-        ]
+        }]
       })
 
       $urlRouterProvider.otherwise('/dashboard/home')
@@ -117,6 +131,9 @@
         .state('dashboard', {
           url: '/dashboard',
           templateUrl: '/views/dashboard/main.html',
+          data: {
+            roles: ['ROLE_USER']
+          },
           resolve: {
             loadMyDirectives: function ($ocLazyLoad) {
               return [
@@ -276,7 +293,44 @@
         })
         .state('login', {
           templateUrl: '/views/pages/login.html',
-          url: '/login'
+          controller: 'LoginController',
+          controllerAs: 'vm',
+          url: '/login',
+          resolve: {
+            load: function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: [
+                  /*'security/services/Authorization.js',
+                  'security/services/Principal.js',
+                  'scripts/services/ApiHost.js',*/
+                  'security/controllers/LoginCtrl.js'
+                ]
+              })
+            }
+          }
+        })
+        .state('login.accessdenied', {
+          templateUrl: '/views/pages/login.html',
+          controller: 'LoginController',
+          controllerAs: 'vm',
+          url: '/accessdenied',
+          data: {
+            msg: 'Access Denied'
+          },
+          resolve: {
+            load: function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: [
+                  /*'security/services/Authorization.js',
+                  'security/services/Principal.js',
+                  'scripts/services/ApiHost.js',*/
+                  'security/controllers/LoginCtrl.js'
+                ]
+              })
+            }
+          }
         })
         .state('dashboard.chart', {
           templateUrl: 'views/chart.html',
@@ -286,7 +340,8 @@
             loadMyFiles: function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
-              files: ['scripts/controllers/chartContoller.js']})
+                files: ['scripts/controllers/chartContoller.js']
+              })
             }
           }
         })
@@ -319,4 +374,23 @@
           url: '/grid'
         })
     }])
+    .run(['$rootScope', '$state', '$stateParams', 'authorization', 'principal',
+      function ($rootScope, $state, $stateParams, authorization, principal) {
+        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+          // track the state the user wants to go to; authorization service needs this
+          $rootScope.toState = toState
+          $rootScope.toStateParams = toStateParams
+          // if the principal is resolved, do an authorization check immediately. otherwise,
+          // it'll be done when the state it resolved.
+          if (principal.isIdentityResolved()) {
+            authorization.authorize()
+          }
+        })
+      }
+    ])
+    .run(function($rootScope, $state, $stateParams){
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
+    })
+    ;
 })()

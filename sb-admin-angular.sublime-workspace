@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"hand",
+				"handleError"
+			],
+			[
+				"$htt",
+				"verbose_$http	AngularJS"
+			],
+			[
+				"se",
+				"services"
+			],
+			[
+				"load",
+				"load"
+			],
+			[
+				"han",
+				"handleError"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"re",
+				"resolve"
+			],
+			[
+				"au",
+				"_authenticated"
+			],
+			[
+				"auth",
+				"authorize"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"retu",
+				"returnToState"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"is",
+				"isInRole"
+			],
+			[
+				"isI",
+				"isInRole"
+			],
+			[
+				"$inter",
+				"$interval	AngularJS"
+			],
+			[
+				"cargar",
+				"cargarPedidos"
+			],
+			[
+				"lis",
+				"listaPendientes"
+			],
+			[
+				"con",
+				"controllers"
+			],
+			[
+				"contro",
+				"controllerAs"
+			],
+			[
+				"tem",
+				"templateUrl"
+			],
+			[
+				"l",
+				"listaPendientes"
+			],
+			[
+				"get",
+				"getPedidosPendientes"
+			],
+			[
 				"ui",
 				"ui-select-choices"
 			],
@@ -52,20 +140,8 @@
 				"item"
 			],
 			[
-				"lis",
-				"listaPlatos"
-			],
-			[
 				"carg",
 				"cargarPlatos"
-			],
-			[
-				"get",
-				"getList"
-			],
-			[
-				"cargar",
-				"cargarBebidas"
 			],
 			[
 				"remove",
@@ -90,18 +166,6 @@
 			[
 				"pro",
 				"productos"
-			],
-			[
-				"con",
-				"controller	AngularJS"
-			],
-			[
-				"se",
-				"selectedClient"
-			],
-			[
-				"l",
-				"listaClientes"
 			],
 			[
 				"$sc",
@@ -215,6 +279,251 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/pedidos/js/services/Pedido.js",
+			"settings":
+			{
+				"buffer_size": 1258,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/pedidos/views/pedidos.pendientes.html",
+			"settings":
+			{
+				"buffer_size": 2141,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "(function(){\n'use strict';\n\nangular\n	.module('sbAdminApp')\n	.directive('tarjetaPedido', ['', function(){\n		// Runs during compile\n		return {\n			// name: '',\n			// priority: 1,\n			// terminal: true,\n			// scope: {}, // {} = isolate, true = child, false/undefined = no change\n			// controller: function($scope, $element, $attrs, $transclude) {},\n			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements\n			// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment\n			// template: '',\n			// templateUrl: '',\n			// replace: true,\n			// transclude: true,\n			// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),\n			link: function($scope, iElm, iAttrs, controller) {\n				\n			}\n		};\n	}]);\n})()",
+			"file": "app/pedidos/js/directives/TarjetaPedido.js",
+			"file_size": 0,
+			"file_write_time": 130732202857899473,
+			"settings":
+			{
+				"buffer_size": 826,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/productos/js/controllers/BebidasCtrl.js",
+			"settings":
+			{
+				"buffer_size": 1402,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bower.json",
+			"settings":
+			{
+				"buffer_size": 993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1332,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/directives/sidebar/sidebar.html",
+			"settings":
+			{
+				"buffer_size": 5592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/app.js",
+			"settings":
+			{
+				"buffer_size": 12951,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/services/ApiHost.js",
+			"settings":
+			{
+				"buffer_size": 141,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 4955,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/security/services/Principal.js",
+			"settings":
+			{
+				"buffer_size": 1929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "(function () {\n	'use strict'\n	/*globals angular:false btoa:false*/\n	angular\n		.module('sbAdminApp')\n		.controller('LoginController', LoginController);\n	function LoginController ($http, $rootScope, $log, $state, ApiHostBaseUrl) {\n		var vm = this\n		vm.username = ''\n		vm.password = ''\n		vm.login = login;\n		vm.credentials = {}\n		vm.authenticate = authenticate;\n		function authenticate (credentials, callback) {\n			var headers = credentials ? {\n				authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)\n			} : {}\n			$http.get(ApiHostBaseUrl + '/identity', {\n				headers: headers,\n				ignoreErrors: true\n			}).success(function(data) {\n				if (data.name) {\n					$rootScope.authenticated = true\n				} else {\n					$rootScope.authenticated = false\n				}\n				callback && callback()\n			}).error(function() {\n				$rootScope.authenticated = false\n				callback && callback()\n			})\n		}\n		vm.authenticate()\n\n		function login() {\n			vm.authenticate(vm.credentials, function() {\n				if ($rootScope.authenticated) {\n					$state.go('dashboard.home')\n					vm.error = false\n				} else {\n					$state.go('login')\n					vm.error = true\n				}\n			})\n		}\n\n	}\n})();\n",
+			"file": "app/security/controllers/LoginCtrl.js",
+			"file_size": 1171,
+			"file_write_time": 130738317737298725,
+			"settings":
+			{
+				"buffer_size": 1165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/victor/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 999,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/victor/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 1379,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n    \"format_on_save\": true,\n\n    // array of extensions to format on save\n    \"extensions\": [\"js\"],\n\n    // Array of command and flags to run against.\n    // Content will be piped into this command\n    // This is a string array that is passed to subprocess\n    \"command\": [\"standard-format\", \"--stdin\"],\n\n    // Pop up error window on formatting errors\n    \"loud_error\": false\n}\n",
+			"file": "/home/victor/.config/sublime-text-3/Packages/StandardFormat/StandardFormat.sublime-settings",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 381,
+				"line_ending": "Unix",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "/home/victor/.config/sublime-text-3/Packages/User/StandardFormat.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# Standard Format\n[![Build Status](https://travis-ci.org/bcomnes/sublime-standard-format.svg?branch=master)](https://travis-ci.org/bcomnes/sublime-standard-format)\n\nA Sublime Text 3 plug-in that runs [standard-format](https://github.com/maxogden/standard-format) against the javascript code in your ST3 window on save or manually.  Can be toggled on or off.  Besides compatibility details, there are no settings.\n\n![action gif](https://cdn.rawgit.com/bcomnes/sublime-standard-format/master/format.gif)\n\n## Installation\n\nStandard Format (the Sublime Text Plug-in) requires that you install [`standard-format`](https://github.com/maxogden/standard-format) to your global path:\n\n```sh\n$ npm install -g standard-format\n```\n\nInstall Standard Format using [Package Control](https://packagecontrol.io/).\n\n```sh\n# In the command palate\n- package control install\n- standard format\n```\n\n## Configuration\n\nYou can find Standard Format settings in the `StandardFormat.sublime-settings` file.\n\n- `format_on_save`: Boolean.  Runs Standard Format on save when set to true.  Use the command pallet to quickly toggle this on or off.\n- `extensions`: String Array.  An array of file extensions that you want to be able to run Standard Format against.\n- `excludes`: String Array.  An array of file extensions that you don't want to run against.\n- `command`: String Array.  Customize the command and flags that **Standard Format** runs against.\n- `PATH` **Not Implemented Yet**: String Array.  An Array of paths to be appended to the search PATH.\n- `loud_error`: Boolean.  Specifies if you get a status bar message or error window if the subprocess encounters an error while formatting.\n\n## Hints\n\n**Standard Format** will try to find and use (`command` to format with if set, otherwise it will fall back to) `standard-format` or `standard`.\n\nWindows is now supported.  Please open any issues that you come across.\n\n## Linter\n\nStandard Format pairs nicely with the Sublime Text `standard` linter:\n\n- [Flet/SublimeLinter-contrib-standard](https://github.com/Flet/SublimeLinter-contrib-standard)\n\n## References\n\n- https://github.com/piuccio/sublime-esformatter\n- https://github.com/ionutvmi/sublime-jsfmt\n- https://github.com/enginespot/js-beautify-sublime\n- https://github.com/jdc0589/JsFormat/commits/master\n- https://github.com/akalongman/sublimetext-codeformatter\n- https://github.com/DisposaBoy/GoSublime\n- https://github.com/Flet/SublimeLinter-contrib-standard\n\n",
+			"file": "/home/victor/.config/sublime-text-3/Packages/StandardFormat/README.md",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 2445,
+				"line_ending": "Unix",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/views/pages/login.html",
+			"settings":
+			{
+				"buffer_size": 1528,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/security/services/Authorization.js",
+			"settings":
+			{
+				"buffer_size": 918,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 10577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bower_components/restangular/Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 3791,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/controllers/form.js",
+			"settings":
+			{
+				"buffer_size": 316,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/controllers/main.js",
+			"settings":
+			{
+				"buffer_size": 298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Remote:   origin @ git@github.com:baskeboler/pizza-app-front.git\nLocal:    master ~/Documents/switch/sb-admin-angular\nHead:     6460ad6 mas listas de pedidos y manipulacion de datos\n\n\nChanges:\n	Modified   sb-admin-angular.sublime-workspace\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"settings":
+			{
+				"buffer_size": 1002,
+				"line_ending": "Unix",
+				"name": "*git-status*: sb-admin-angular",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "Searching 13163 files for \"// jshint\" (case sensitive)\n\n/home/victor/Documents/switch/sb-admin-angular/app/scripts/app.js:\n    9     * Main module of the application.\n   10     */\n   11:   // jshint undef:true\n   12    angular\n   13      .module('sbAdminApp', [\n\n/home/victor/Documents/switch/sb-admin-angular/bower_components/angular/angular.js:\n 2266  \n 2267    function removePatch(param) {\n 2268:     // jshint -W040\n 2269      var list = filterElems && param ? [this.filter(param)] : [this],\n 2270          fireEvent = dispatchThis,\n ....\n 2580        this.on('DOMContentLoaded', trigger); // works for modern browsers and IE9\n 2581        // we can not use jqLite since we are not done loading and jQuery could be loaded later.\n 2582:       // jshint -W064\n 2583        JQLite(window).on('load', trigger); // fallback to window.onload for others\n 2584:       // jshint +W064\n 2585      }\n 2586    },\n ....\n 2898            var contains = document.body.contains || document.body.compareDocumentPosition ?\n 2899            function( a, b ) {\n 2900:             // jshint bitwise: false\n 2901              var adown = a.nodeType === 9 ? a.documentElement : a,\n 2902              bup = b && b.parentNode;\n ....\n 14346        // so let's not use the history API also\n 14347        // We are purposefully using `!(android < 4)` to cover the case when `android` is undefined\n 14348:       // jshint -W018\n 14349        history: !!($window.history && $window.history.pushState && !(android < 4) && !boxee),\n 14350:       // jshint +W018\n 14351        hashchange: 'onhashchange' in $window &&\n 14352                    // IE8 compatible mode lies\n .....\n 14947          // Set up expression object and fall through\n 14948          expression = {$:expression};\n 14949:         // jshint -W086\n 14950        case 'object':\n 14951:         // jshint +W086\n 14952          for (var key in expression) {\n 14953            (function(path) {\n .....\n 17787    this.$setValidity = function(validationErrorKey, isValid) {\n 17788      // Purposeful use of ! here to cast isValid to boolean in case it is undefined\n 17789:     // jshint -W018\n 17790      if ($error[validationErrorKey] === !isValid) return;\n 17791:     // jshint +W018\n 17792  \n 17793      if (isValid) {\n .....\n 18352          // We are purposefully using == here rather than === because we want to\n 18353          // catch when value is \"null or undefined\"\n 18354:         // jshint -W041\n 18355          element.text(value == undefined ? '' : value);\n 18356        });\n .....\n 18510          if (name !== 'ngClass') {\n 18511            scope.$watch('$index', function($index, old$index) {\n 18512:             // jshint bitwise: false\n 18513              var mod = $index & 1;\n 18514              if (mod !== (old$index & 1)) {\n .....\n 20743              childScope.$last = (index === (arrayLength - 1));\n 20744              childScope.$middle = !(childScope.$first || childScope.$last);\n 20745:             // jshint bitwise: false\n 20746              childScope.$odd = !(childScope.$even = (index&1) === 0);\n 20747:             // jshint bitwise: true\n 20748  \n 20749              if (!block.scope) {\n .....\n 21598  \n 21599  var ngOptionsDirective = valueFn({ terminal: true });\n 21600: // jshint maxlen: false\n 21601  var selectDirective = ['$compile', '$parse', function($compile,   $parse) {\n 21602                           //000011111111110000000000022222222220000000000000000000003333333333000000000000004444444444444440000000005555555555555550000000666666666666666000000000000000777777777700000000000000000008888888888\n 21603    var NG_OPTIONS_REGEXP = /^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+(?:([\\$\\w][\\$\\w]*)|(?:\\(\\s*([\\$\\w][\\$\\w]*)\\s*,\\s*([\\$\\w][\\$\\w]*)\\s*\\)))\\s+in\\s+([\\s\\S]+?)(?:\\s+track\\s+by\\s+([\\s\\S]+?))?$/,\n 21604        nullModelCtrl = {$setViewValue: noop};\n 21605: // jshint maxlen: 100\n 21606  \n 21607    return {\n\n/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-resource/angular-resource.js:\n  534              if (data) {\n  535                // Need to convert action.isArray to boolean in case it is undefined\n  536:               // jshint -W018\n  537                if (angular.isArray(data) !== (!!action.isArray)) {\n  538                  throw $resourceMinErr('badcfg', 'Error in resource configuration. Expected ' +\n  ...\n  540                    action.isArray?'array':'object', angular.isArray(data)?'array':'object');\n  541                }\n  542:               // jshint +W018\n  543                if (action.isArray) {\n  544                  value.length = 0;\n\n/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-scenario/angular-scenario.js:\n 11991  \n 11992    function removePatch(param) {\n 11993:     // jshint -W040\n 11994      var list = filterElems && param ? [this.filter(param)] : [this],\n 11995          fireEvent = dispatchThis,\n .....\n 12308        this.on('DOMContentLoaded', trigger); // works for modern browsers and IE9\n 12309        // we can not use jqLite since we are not done loading and jQuery could be loaded later.\n 12310:       // jshint -W064\n 12311        JQLite(window).on('load', trigger); // fallback to window.onload for others\n 12312:       // jshint +W064\n 12313      }\n 12314    },\n .....\n 12617            var contains = document.body.contains || document.body.compareDocumentPosition ?\n 12618            function( a, b ) {\n 12619:             // jshint bitwise: false\n 12620              var adown = a.nodeType === 9 ? a.documentElement : a,\n 12621              bup = b && b.parentNode;\n .....\n 23735        // so let's not use the history API also\n 23736        // We are purposefully using `!(android < 4)` to cover the case when `android` is undefined\n 23737:       // jshint -W018\n 23738        history: !!($window.history && $window.history.pushState && !(android < 4) && !boxee),\n 23739:       // jshint +W018\n 23740        hashchange: 'onhashchange' in $window &&\n 23741                    // IE8 compatible mode lies\n .....\n 24315          // Set up expression object and fall through\n 24316          expression = {$:expression};\n 24317:         // jshint -W086\n 24318        case \"object\":\n 24319:         // jshint +W086\n 24320          for (var key in expression) {\n 24321            (function(path) {\n .....\n 27022    this.$setValidity = function(validationErrorKey, isValid) {\n 27023      // Purposeful use of ! here to cast isValid to boolean in case it is undefined\n 27024:     // jshint -W018\n 27025      if ($error[validationErrorKey] === !isValid) return;\n 27026:     // jshint +W018\n 27027  \n 27028      if (isValid) {\n .....\n 27579      // We are purposefully using == here rather than === because we want to\n 27580      // catch when value is \"null or undefined\"\n 27581:     // jshint -W041\n 27582      element.text(value == undefined ? '' : value);\n 27583    });\n .....\n 27723          if (name !== 'ngClass') {\n 27724            scope.$watch('$index', function($index, old$index) {\n 27725:             // jshint bitwise: false\n 27726              var mod = $index & 1;\n 27727              if (mod !== old$index & 1) {\n .....\n 29869              childScope.$last = (index === (arrayLength - 1));\n 29870              childScope.$middle = !(childScope.$first || childScope.$last);\n 29871:             // jshint bitwise: false\n 29872              childScope.$odd = !(childScope.$even = (index&1) === 0);\n 29873:             // jshint bitwise: true\n 29874  \n 29875              if (!block.scope) {\n .....\n 30730  \n 30731  var ngOptionsDirective = valueFn({ terminal: true });\n 30732: // jshint maxlen: false\n 30733  var selectDirective = ['$compile', '$parse', function($compile,   $parse) {\n 30734                           //000011111111110000000000022222222220000000000000000000003333333333000000000000004444444444444440000000005555555555555550000000666666666666666000000000000000777777777700000000000000000008888888888\n 30735    var NG_OPTIONS_REGEXP = /^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+(?:([\\$\\w][\\$\\w]*)|(?:\\(\\s*([\\$\\w][\\$\\w]*)\\s*,\\s*([\\$\\w][\\$\\w]*)\\s*\\)))\\s+in\\s+([\\s\\S]+?)(?:\\s+track\\s+by\\s+([\\s\\S]+?))?$/,\n 30736        nullModelCtrl = {$setViewValue: noop};\n 30737: // jshint maxlen: 100\n 30738  \n 30739    return {\n\n/home/victor/Documents/switch/sb-admin-angular/dist/bower_components/angular/angular.js:\n 2266  \n 2267    function removePatch(param) {\n 2268:     // jshint -W040\n 2269      var list = filterElems && param ? [this.filter(param)] : [this],\n 2270          fireEvent = dispatchThis,\n ....\n 2580        this.on('DOMContentLoaded', trigger); // works for modern browsers and IE9\n 2581        // we can not use jqLite since we are not done loading and jQuery could be loaded later.\n 2582:       // jshint -W064\n 2583        JQLite(window).on('load', trigger); // fallback to window.onload for others\n 2584:       // jshint +W064\n 2585      }\n 2586    },\n ....\n 2898            var contains = document.body.contains || document.body.compareDocumentPosition ?\n 2899            function( a, b ) {\n 2900:             // jshint bitwise: false\n 2901              var adown = a.nodeType === 9 ? a.documentElement : a,\n 2902              bup = b && b.parentNode;\n ....\n 14346        // so let's not use the history API also\n 14347        // We are purposefully using `!(android < 4)` to cover the case when `android` is undefined\n 14348:       // jshint -W018\n 14349        history: !!($window.history && $window.history.pushState && !(android < 4) && !boxee),\n 14350:       // jshint +W018\n 14351        hashchange: 'onhashchange' in $window &&\n 14352                    // IE8 compatible mode lies\n .....\n 14947          // Set up expression object and fall through\n 14948          expression = {$:expression};\n 14949:         // jshint -W086\n 14950        case 'object':\n 14951:         // jshint +W086\n 14952          for (var key in expression) {\n 14953            (function(path) {\n .....\n 17787    this.$setValidity = function(validationErrorKey, isValid) {\n 17788      // Purposeful use of ! here to cast isValid to boolean in case it is undefined\n 17789:     // jshint -W018\n 17790      if ($error[validationErrorKey] === !isValid) return;\n 17791:     // jshint +W018\n 17792  \n 17793      if (isValid) {\n .....\n 18352          // We are purposefully using == here rather than === because we want to\n 18353          // catch when value is \"null or undefined\"\n 18354:         // jshint -W041\n 18355          element.text(value == undefined ? '' : value);\n 18356        });\n .....\n 18510          if (name !== 'ngClass') {\n 18511            scope.$watch('$index', function($index, old$index) {\n 18512:             // jshint bitwise: false\n 18513              var mod = $index & 1;\n 18514              if (mod !== (old$index & 1)) {\n .....\n 20743              childScope.$last = (index === (arrayLength - 1));\n 20744              childScope.$middle = !(childScope.$first || childScope.$last);\n 20745:             // jshint bitwise: false\n 20746              childScope.$odd = !(childScope.$even = (index&1) === 0);\n 20747:             // jshint bitwise: true\n 20748  \n 20749              if (!block.scope) {\n .....\n 21598  \n 21599  var ngOptionsDirective = valueFn({ terminal: true });\n 21600: // jshint maxlen: false\n 21601  var selectDirective = ['$compile', '$parse', function($compile,   $parse) {\n 21602                           //000011111111110000000000022222222220000000000000000000003333333333000000000000004444444444444440000000005555555555555550000000666666666666666000000000000000777777777700000000000000000008888888888\n 21603    var NG_OPTIONS_REGEXP = /^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+(?:([\\$\\w][\\$\\w]*)|(?:\\(\\s*([\\$\\w][\\$\\w]*)\\s*,\\s*([\\$\\w][\\$\\w]*)\\s*\\)))\\s+in\\s+([\\s\\S]+?)(?:\\s+track\\s+by\\s+([\\s\\S]+?))?$/,\n 21604        nullModelCtrl = {$setViewValue: noop};\n 21605: // jshint maxlen: 100\n 21606  \n 21607    return {\n\n/home/victor/Documents/switch/sb-admin-angular/dist/bower_components/angular-resource/angular-resource.js:\n  534              if (data) {\n  535                // Need to convert action.isArray to boolean in case it is undefined\n  536:               // jshint -W018\n  537                if (angular.isArray(data) !== (!!action.isArray)) {\n  538                  throw $resourceMinErr('badcfg', 'Error in resource configuration. Expected ' +\n  ...\n  540                    action.isArray?'array':'object', angular.isArray(data)?'array':'object');\n  541                }\n  542:               // jshint +W018\n  543                if (action.isArray) {\n  544                  value.length = 0;\n\n/home/victor/Documents/switch/sb-admin-angular/dist/bower_components/angular-scenario/angular-scenario.js:\n 11991  \n 11992    function removePatch(param) {\n 11993:     // jshint -W040\n 11994      var list = filterElems && param ? [this.filter(param)] : [this],\n 11995          fireEvent = dispatchThis,\n .....\n 12308        this.on('DOMContentLoaded', trigger); // works for modern browsers and IE9\n 12309        // we can not use jqLite since we are not done loading and jQuery could be loaded later.\n 12310:       // jshint -W064\n 12311        JQLite(window).on('load', trigger); // fallback to window.onload for others\n 12312:       // jshint +W064\n 12313      }\n 12314    },\n .....\n 12617            var contains = document.body.contains || document.body.compareDocumentPosition ?\n 12618            function( a, b ) {\n 12619:             // jshint bitwise: false\n 12620              var adown = a.nodeType === 9 ? a.documentElement : a,\n 12621              bup = b && b.parentNode;\n .....\n 23735        // so let's not use the history API also\n 23736        // We are purposefully using `!(android < 4)` to cover the case when `android` is undefined\n 23737:       // jshint -W018\n 23738        history: !!($window.history && $window.history.pushState && !(android < 4) && !boxee),\n 23739:       // jshint +W018\n 23740        hashchange: 'onhashchange' in $window &&\n 23741                    // IE8 compatible mode lies\n .....\n 24315          // Set up expression object and fall through\n 24316          expression = {$:expression};\n 24317:         // jshint -W086\n 24318        case \"object\":\n 24319:         // jshint +W086\n 24320          for (var key in expression) {\n 24321            (function(path) {\n .....\n 27022    this.$setValidity = function(validationErrorKey, isValid) {\n 27023      // Purposeful use of ! here to cast isValid to boolean in case it is undefined\n 27024:     // jshint -W018\n 27025      if ($error[validationErrorKey] === !isValid) return;\n 27026:     // jshint +W018\n 27027  \n 27028      if (isValid) {\n .....\n 27579      // We are purposefully using == here rather than === because we want to\n 27580      // catch when value is \"null or undefined\"\n 27581:     // jshint -W041\n 27582      element.text(value == undefined ? '' : value);\n 27583    });\n .....\n 27723          if (name !== 'ngClass') {\n 27724            scope.$watch('$index', function($index, old$index) {\n 27725:             // jshint bitwise: false\n 27726              var mod = $index & 1;\n 27727              if (mod !== old$index & 1) {\n .....\n 29869              childScope.$last = (index === (arrayLength - 1));\n 29870              childScope.$middle = !(childScope.$first || childScope.$last);\n 29871:             // jshint bitwise: false\n 29872              childScope.$odd = !(childScope.$even = (index&1) === 0);\n 29873:             // jshint bitwise: true\n 29874  \n 29875              if (!block.scope) {\n .....\n 30730  \n 30731  var ngOptionsDirective = valueFn({ terminal: true });\n 30732: // jshint maxlen: false\n 30733  var selectDirective = ['$compile', '$parse', function($compile,   $parse) {\n 30734                           //000011111111110000000000022222222220000000000000000000003333333333000000000000004444444444444440000000005555555555555550000000666666666666666000000000000000777777777700000000000000000008888888888\n 30735    var NG_OPTIONS_REGEXP = /^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+(?:([\\$\\w][\\$\\w]*)|(?:\\(\\s*([\\$\\w][\\$\\w]*)\\s*,\\s*([\\$\\w][\\$\\w]*)\\s*\\)))\\s+in\\s+([\\s\\S]+?)(?:\\s+track\\s+by\\s+([\\s\\S]+?))?$/,\n 30736        nullModelCtrl = {$setViewValue: noop};\n 30737: // jshint maxlen: 100\n 30738  \n 30739    return {\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-jshint/node_modules/jshint/dist/jshint-rhino.js:\n 4914       * `Array`, `Date` and so on.\n 4915       *\n 4916:      *     // jshint freeze:true\n 4917       *     Array.prototype.count = function (value) { return 4; };\n 4918       *     // -> Warning: Extending prototype of native object: 'Array'.\n ....\n 5114       * option is very useful for spotting leaking and mistyped variables.\n 5115       *\n 5116:      *     // jshint undef:true\n 5117       *\n 5118       *     function test() {\n ....\n 5131       * a misunderstanding of unary operators, for example:\n 5132       *\n 5133:      *     // jshint singleGroups: true\n 5134       *\n 5135       *     delete(obj.attr); // Warning: Grouping operator is unnecessary for lone expressions.\n ....\n 5171       * anything in between the escape character and a whitespace.\n 5172       *\n 5173:      *     // jshint multistr:true\n 5174       *\n 5175       *     var text = \"Hello\\\n ....\n 5603     * This option lets you set the max number of statements allowed per function:\n 5604     *\n 5605:    *     // jshint maxstatements:4\n 5606     *\n 5607     *     function main() {\n ....\n 5627     * This option lets you control how nested do you want your blocks to be:\n 5628     *\n 5629:    *     // jshint maxdepth:2\n 5630     *\n 5631     *     function main(meaning) {\n ....\n 5649     * function:\n 5650     *\n 5651:    *     // jshint maxparams:3\n 5652     *\n 5653     *     function login(request, onSuccess) {\n ....\n 5686     * `undef`.\n 5687     *\n 5688:    *     // jshint unused:true\n 5689     *\n 5690     *     function test(a, b) {\n ....\n 5999  \n 6000  },{}],20:[function(require,module,exports){\n 6001: // jshint -W001\n 6002  \n 6003  \"use strict\";\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-jshint/node_modules/jshint/dist/jshint.js:\n 4912       * `Array`, `Date` and so on.\n 4913       *\n 4914:      *     // jshint freeze:true\n 4915       *     Array.prototype.count = function (value) { return 4; };\n 4916       *     // -> Warning: Extending prototype of native object: 'Array'.\n ....\n 5112       * option is very useful for spotting leaking and mistyped variables.\n 5113       *\n 5114:      *     // jshint undef:true\n 5115       *\n 5116       *     function test() {\n ....\n 5129       * a misunderstanding of unary operators, for example:\n 5130       *\n 5131:      *     // jshint singleGroups: true\n 5132       *\n 5133       *     delete(obj.attr); // Warning: Grouping operator is unnecessary for lone expressions.\n ....\n 5169       * anything in between the escape character and a whitespace.\n 5170       *\n 5171:      *     // jshint multistr:true\n 5172       *\n 5173       *     var text = \"Hello\\\n ....\n 5601     * This option lets you set the max number of statements allowed per function:\n 5602     *\n 5603:    *     // jshint maxstatements:4\n 5604     *\n 5605     *     function main() {\n ....\n 5625     * This option lets you control how nested do you want your blocks to be:\n 5626     *\n 5627:    *     // jshint maxdepth:2\n 5628     *\n 5629     *     function main(meaning) {\n ....\n 5647     * function:\n 5648     *\n 5649:    *     // jshint maxparams:3\n 5650     *\n 5651     *     function login(request, onSuccess) {\n ....\n 5684     * `undef`.\n 5685     *\n 5686:    *     // jshint unused:true\n 5687     *\n 5688     *     function test(a, b) {\n ....\n 5997  \n 5998  },{}],20:[function(require,module,exports){\n 5999: // jshint -W001\n 6000  \n 6001  \"use strict\";\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-jshint/node_modules/jshint/src/options.js:\n   17       * `Array`, `Date` and so on.\n   18       *\n   19:      *     // jshint freeze:true\n   20       *     Array.prototype.count = function (value) { return 4; };\n   21       *     // -> Warning: Extending prototype of native object: 'Array'.\n   ..\n  217       * option is very useful for spotting leaking and mistyped variables.\n  218       *\n  219:      *     // jshint undef:true\n  220       *\n  221       *     function test() {\n  ...\n  234       * a misunderstanding of unary operators, for example:\n  235       *\n  236:      *     // jshint singleGroups: true\n  237       *\n  238       *     delete(obj.attr); // Warning: Grouping operator is unnecessary for lone expressions.\n  ...\n  274       * anything in between the escape character and a whitespace.\n  275       *\n  276:      *     // jshint multistr:true\n  277       *\n  278       *     var text = \"Hello\\\n  ...\n  706     * This option lets you set the max number of statements allowed per function:\n  707     *\n  708:    *     // jshint maxstatements:4\n  709     *\n  710     *     function main() {\n  ...\n  730     * This option lets you control how nested do you want your blocks to be:\n  731     *\n  732:    *     // jshint maxdepth:2\n  733     *\n  734     *     function main(meaning) {\n  ...\n  752     * function:\n  753     *\n  754:    *     // jshint maxparams:3\n  755     *\n  756     *     function login(request, onSuccess) {\n  ...\n  789     * `undef`.\n  790     *\n  791:    *     // jshint unused:true\n  792     *\n  793     *     function test(a, b) {\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-contrib-jshint/node_modules/jshint/src/vars.js:\n    1: // jshint -W001\n    2  \n    3  \"use strict\";\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/array/zip.js:\n   15              i = -1;\n   16          while (++i < len) {\n   17:             // jshint loopfunc: true\n   18              results.push(map(arguments, function(item) {\n   19                  return item == null ? undefined : item[i];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/number/isNaN.js:\n    6       */\n    7      function isNaN(val){\n    8:         // jshint eqeqeq:false\n    9          return typeof val === 'number' && val != val;\n   10      }\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/object/deepFillIn.js:\n   13              obj = arguments[i];\n   14              if (obj) {\n   15:                 // jshint loopfunc: true\n   16                  forOwn(obj, function(newValue, key) {\n   17                      var curValue = target[key];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/src/array/zip.js:\n   14              i = -1;\n   15          while (++i < len) {\n   16:             // jshint loopfunc: true\n   17              results.push(map(arguments, function(item) {\n   18                  return item == null ? undefined : item[i];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/src/number/isNaN.js:\n    6       */\n    7      function isNaN(val){\n    8:         // jshint eqeqeq:false\n    9          return typeof val === 'number' && val != val;\n   10      }\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/src/object/deepFillIn.js:\n   12              obj = arguments[i];\n   13              if (obj) {\n   14:                 // jshint loopfunc: true\n   15                  forOwn(obj, function(newValue, key) {\n   16                      var curValue = target[key];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-wiredep/node_modules/wiredep/node_modules/bower-config/node_modules/mout/array/zip.js:\n   15              i = -1;\n   16          while (++i < len) {\n   17:             // jshint loopfunc: true\n   18              results.push(map(arguments, function(item) {\n   19                  return item == null ? undefined : item[i];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-wiredep/node_modules/wiredep/node_modules/bower-config/node_modules/mout/number/isNaN.js:\n    6       */\n    7      function isNaN(val){\n    8:         // jshint eqeqeq:false\n    9          return typeof val === 'number' && val != val;\n   10      }\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-wiredep/node_modules/wiredep/node_modules/bower-config/node_modules/mout/object/deepFillIn.js:\n   13              obj = arguments[i];\n   14              if (obj) {\n   15:                 // jshint loopfunc: true\n   16                  forOwn(obj, function(newValue, key) {\n   17                      var curValue = target[key];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-wiredep/node_modules/wiredep/node_modules/bower-config/node_modules/mout/src/array/zip.js:\n   14              i = -1;\n   15          while (++i < len) {\n   16:             // jshint loopfunc: true\n   17              results.push(map(arguments, function(item) {\n   18                  return item == null ? undefined : item[i];\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-wiredep/node_modules/wiredep/node_modules/bower-config/node_modules/mout/src/number/isNaN.js:\n    6       */\n    7      function isNaN(val){\n    8:         // jshint eqeqeq:false\n    9          return typeof val === 'number' && val != val;\n   10      }\n\n/home/victor/Documents/switch/sb-admin-angular/node_modules/grunt-wiredep/node_modules/wiredep/node_modules/bower-config/node_modules/mout/src/object/deepFillIn.js:\n   12              obj = arguments[i];\n   13              if (obj) {\n   14:                 // jshint loopfunc: true\n   15                  forOwn(obj, function(newValue, key) {\n   16                      var curValue = target[key];\n\n108 matches across 23 files\n\n\nSearching 13163 files for \"updatePedidos\" (case sensitive)\n\n/home/victor/Documents/switch/sb-admin-angular/app/pedidos/js/controllers/ListaPedidosCtrl.js:\n   10  \n   11      vm.cargarPedidos = cargarPedidos\n   12:     vm.updatePedidos = updatePedidos\n   13      vm.setFilterFecha = setFilterFecha\n   14      vm.getTotal = getTotal\n   ..\n   29      $timeout(vm.cargarPedidos, 1000)\n   30  \n   31:     function updatePedidos () {\n   32        if (vm.filtroFecha && vm.filtroFecha.trim() !== '') {\n   33          vm.listaPedidos = vm.diario[vm.filtroFecha]\n\n/home/victor/Documents/switch/sb-admin-angular/app/pedidos/js/controllers/PedidosPendientesCtrl.js:\n   46      $timeout(vm.cargarPedidos, 1000)\n   47  \n   48:     function updatePedidos () {\n   49        if (vm.filtroFecha && vm.filtroFecha.trim() !== '') {\n   50          vm.listaPedidos = vm.diario[vm.filtroFecha]\n\n4 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 26905,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "node_modules/grunt-contrib-jshint/node_modules/jshint/dist/jshint-rhino.js",
+			"settings":
+			{
+				"buffer_size": 633469,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/spec/controllers/BebidasCtrl.js",
+			"settings":
+			{
+				"buffer_size": 660,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/pedidos/js/controllers/ListaPedidosCtrl.js",
+			"settings":
+			{
+				"buffer_size": 2990,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -223,10 +532,50 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "snippet sele",
+		"height": 375.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"form",
+				"Standard Format: Format current file"
+			],
+			[
+				"forma",
+				"Format: JavaScript Standard Style"
+			],
+			[
+				"format",
+				"Format: JavaScript Standard Style"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"standard",
+				"Standard Format: Toggle format on save"
+			],
+			[
+				"sta",
+				"Standard Format: Format current file"
+			],
+			[
+				"pu",
+				"Git: Push"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"defini",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"dev",
+				"DevDocs: Search From Selection"
+			],
 			[
 				"snippet sele",
 				"Snippet: <select>"
@@ -240,20 +589,12 @@
 				"HTMLBeautify"
 			],
 			[
-				"form",
-				"Format: Javascript"
-			],
-			[
 				"git",
 				"Git: Diff"
 			],
 			[
 				"pull",
 				"Git: Pull"
-			],
-			[
-				"stat",
-				"Git: Status"
 			],
 			[
 				"html",
@@ -322,10 +663,6 @@
 			[
 				"ren",
 				"Emmet: Rename Tag"
-			],
-			[
-				"sta",
-				"Git: Status"
 			],
 			[
 				"lo",
@@ -400,20 +737,8 @@
 				"Git: Status"
 			],
 			[
-				"remo",
-				"Git: Remote"
-			],
-			[
-				"pu",
-				"Git: Push"
-			],
-			[
 				"remot",
 				"Git: Add Remote"
-			],
-			[
-				"dev",
-				"DevDocs: Search From Input"
 			],
 			[
 				"side",
@@ -424,11 +749,11 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 852.0
+		"width": 838.0
 	},
 	"console":
 	{
-		"height": 139.0,
+		"height": 180.0,
 		"history":
 		[
 			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
@@ -448,32 +773,21 @@
 		"/home/victor/Documents/switch/sb-admin-angular",
 		"/home/victor/Documents/switch/sb-admin-angular/app",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/dashboard",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/dashboard/stats",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/header",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/header/header-notification",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar-search",
-		"/home/victor/Documents/switch/sb-admin-angular/app/styles",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views/clientes",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views/dashboard",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views/pages",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views/pedidos",
-		"/home/victor/Documents/switch/sb-admin-angular/app/views/productos",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-ui-select",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-ui-select/dist",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/lodash",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/ng-grid",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/restangular",
-		"/home/victor/Documents/switch/sb-admin-angular/bower_components/restangular/dist",
-		"/home/victor/Documents/switch/sb-admin-angular/app"
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/services",
+		"/home/victor/Documents/switch/sb-admin-angular/app/security",
+		"/home/victor/Documents/switch/sb-admin-angular/app/security/controllers",
+		"/home/victor/Documents/switch/sb-admin-angular/app/security/services",
+		"/home/victor/Documents/switch/sb-admin-angular/app/styles"
 	],
 	"file_history":
 	[
+		"/home/victor/Documents/switch/sb-admin-angular/app/security/controllers/LoginCtrl.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/chartContoller.js",
+		"/home/victor/Documents/switch/sb-admin-angular/app/pedidos/js/controllers/PedidosPendientesCtrl.js",
+		"/home/victor/Documents/switch/sb-admin-angular/test/spec/controllers/main.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/restangular/.jshintrc",
+		"/home/victor/Documents/switch/sb-admin-angular/dist/scripts/app.js",
+		"/home/victor/Documents/switch/sb-admin-angular/bower_components/es5-shim/es5-sham.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/views/pages/blank.html",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/app.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/ClienteCtrl.js",
@@ -491,7 +805,6 @@
 		"/home/victor/Documents/switch/sb-admin-angular/bower_components/angular-chart.js/angular-chart.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/directives/sidebar/sidebar.html",
-		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/chartContoller.js",
 		"/home/victor/Documents/switch/sb-admin-angular/app/scripts/controllers/Bebidas",
 		"/home/victor/Documents/switch/sb-admin-angular/bower.json",
 		"/home/victor/Documents/switch/sb-admin-angular/bower_components/metisMenu/Gruntfile.js",
@@ -595,23 +908,18 @@
 		"/home/victor/Documents/switch/geeklab201503/dist/slides/metas-de-diseno.md",
 		"/home/victor/Documents/switch/geeklab201503/slides/metas-de-diseno.html",
 		"/home/victor/Documents/switch/geeklab201503/slides/contenido-cont.html",
-		"/home/victor/Documents/switch/geeklab201503/slides/inicio.html",
-		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/theme/default.css",
-		"/home/victor/Documents/switch/geeklab201503/slides/contenido.md",
-		"/home/victor/Documents/switch/geeklab201503/slides/index.md",
-		"/home/victor/Documents/switch/geeklab201503/slides/metas-de-diseno.md",
-		"/home/victor/Documents/switch/geeklab201503/slides/help.html",
-		"/home/victor/Documents/switch/geeklab201503/bower_components/reveal.js/css/theme/template/theme.scss"
+		"/home/victor/Documents/switch/geeklab201503/slides/inicio.html"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"*.js",
 			"/home/victor/Documents/switch/geeklab201503/slides",
 			"*.html",
 			"*,/home/victor/Documents/switch/sb-admin-angular/app/scripts",
@@ -626,6 +934,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"retrieve",
+			"data",
+			"sec",
+			"updatePedidos",
+			"pedidos",
+			"')",
+			"global",
+			"jshint",
+			"def",
+			"var",
+			"no-",
+			"glob",
+			"undef",
+			"// jshint",
+			"//jshint",
+			"log",
 			"dropDown",
 			"close",
 			"minim",
@@ -690,14 +1014,1303 @@
 	"groups":
 	[
 		{
+			"selected": 11,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/pedidos/js/services/Pedido.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1026,
+								1026
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 26,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/pedidos/views/pedidos.pendientes.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2141,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								568,
+								568
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/pedidos/js/directives/TarjetaPedido.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								85
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/productos/js/controllers/BebidasCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1402,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								263,
+								263
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "bower.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "package.json",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/scripts/directives/sidebar/sidebar.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1972,
+								1972
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 233.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/scripts/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12951,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10440,
+								10440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 150.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/scripts/services/ApiHost.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 141,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4955,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4075,
+								4075
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/security/services/Principal.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1519,
+								1519
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 828.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/security/controllers/LoginCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								151,
+								151
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/victor/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/victor/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								337,
+								337
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/home/victor/.config/sublime-text-3/Packages/StandardFormat/StandardFormat.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/home/victor/.config/sublime-text-3/Packages/User/StandardFormat.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/home/victor/.config/sublime-text-3/Packages/StandardFormat/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2445,
+								2445
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/views/pages/login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								380,
+								380
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "app/security/services/Authorization.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 918,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								320,
+								320
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "Gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34,
+								34
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6804.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "bower_components/restangular/Gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1140,
+								1140
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 576.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "app/scripts/controllers/form.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 316,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "app/scripts/controllers/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1002,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								184,
+								184
+							]
+						],
+						"settings":
+						{
+							"__vi_external_disable": true,
+							"draw_white_space": "none",
+							"git_repo": "/home/victor/Documents/switch/sb-admin-angular",
+							"git_status": true,
+							"git_view": "status",
+							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26905,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										189,
+										198
+									],
+									[
+										405,
+										414
+									],
+									[
+										747,
+										756
+									],
+									[
+										865,
+										874
+									],
+									[
+										1065,
+										1074
+									],
+									[
+										1388,
+										1397
+									],
+									[
+										1519,
+										1528
+									],
+									[
+										1773,
+										1782
+									],
+									[
+										1834,
+										1843
+									],
+									[
+										2112,
+										2121
+									],
+									[
+										2205,
+										2214
+									],
+									[
+										2427,
+										2436
+									],
+									[
+										2664,
+										2673
+									],
+									[
+										2962,
+										2971
+									],
+									[
+										3084,
+										3093
+									],
+									[
+										3243,
+										3252
+									],
+									[
+										3879,
+										3888
+									],
+									[
+										4174,
+										4183
+									],
+									[
+										4514,
+										4523
+									],
+									[
+										4778,
+										4787
+									],
+									[
+										5126,
+										5135
+									],
+									[
+										5246,
+										5255
+									],
+									[
+										5452,
+										5461
+									],
+									[
+										5778,
+										5787
+									],
+									[
+										5909,
+										5918
+									],
+									[
+										6163,
+										6172
+									],
+									[
+										6224,
+										6233
+									],
+									[
+										6502,
+										6511
+									],
+									[
+										6595,
+										6604
+									],
+									[
+										6805,
+										6814
+									],
+									[
+										7034,
+										7043
+									],
+									[
+										7330,
+										7339
+									],
+									[
+										7452,
+										7461
+									],
+									[
+										7611,
+										7620
+									],
+									[
+										8247,
+										8256
+									],
+									[
+										8445,
+										8454
+									],
+									[
+										8787,
+										8796
+									],
+									[
+										8905,
+										8914
+									],
+									[
+										9105,
+										9114
+									],
+									[
+										9428,
+										9437
+									],
+									[
+										9559,
+										9568
+									],
+									[
+										9813,
+										9822
+									],
+									[
+										9874,
+										9883
+									],
+									[
+										10152,
+										10161
+									],
+									[
+										10245,
+										10254
+									],
+									[
+										10467,
+										10476
+									],
+									[
+										10704,
+										10713
+									],
+									[
+										11002,
+										11011
+									],
+									[
+										11124,
+										11133
+									],
+									[
+										11283,
+										11292
+									],
+									[
+										11919,
+										11928
+									],
+									[
+										12219,
+										12228
+									],
+									[
+										12559,
+										12568
+									],
+									[
+										12828,
+										12837
+									],
+									[
+										13176,
+										13185
+									],
+									[
+										13296,
+										13305
+									],
+									[
+										13502,
+										13511
+									],
+									[
+										13828,
+										13837
+									],
+									[
+										13959,
+										13968
+									],
+									[
+										14213,
+										14222
+									],
+									[
+										14274,
+										14283
+									],
+									[
+										14552,
+										14561
+									],
+									[
+										14645,
+										14654
+									],
+									[
+										14855,
+										14864
+									],
+									[
+										15084,
+										15093
+									],
+									[
+										15380,
+										15389
+									],
+									[
+										15502,
+										15511
+									],
+									[
+										15661,
+										15670
+									],
+									[
+										16297,
+										16306
+									],
+									[
+										16544,
+										16553
+									],
+									[
+										16839,
+										16848
+									],
+									[
+										17014,
+										17023
+									],
+									[
+										17271,
+										17280
+									],
+									[
+										17468,
+										17477
+									],
+									[
+										17657,
+										17666
+									],
+									[
+										17787,
+										17796
+									],
+									[
+										17929,
+										17938
+									],
+									[
+										18073,
+										18082
+									],
+									[
+										18309,
+										18318
+									],
+									[
+										18604,
+										18613
+									],
+									[
+										18779,
+										18788
+									],
+									[
+										19036,
+										19045
+									],
+									[
+										19233,
+										19242
+									],
+									[
+										19422,
+										19431
+									],
+									[
+										19552,
+										19561
+									],
+									[
+										19694,
+										19703
+									],
+									[
+										19838,
+										19847
+									],
+									[
+										20074,
+										20083
+									],
+									[
+										20369,
+										20378
+									],
+									[
+										20544,
+										20553
+									],
+									[
+										20801,
+										20810
+									],
+									[
+										20998,
+										21007
+									],
+									[
+										21187,
+										21196
+									],
+									[
+										21317,
+										21326
+									],
+									[
+										21459,
+										21468
+									],
+									[
+										21653,
+										21662
+									],
+									[
+										21908,
+										21917
+									],
+									[
+										22257,
+										22266
+									],
+									[
+										22583,
+										22592
+									],
+									[
+										22938,
+										22947
+									],
+									[
+										23291,
+										23300
+									],
+									[
+										23621,
+										23630
+									],
+									[
+										23997,
+										24006
+									],
+									[
+										24371,
+										24380
+									],
+									[
+										24722,
+										24731
+									],
+									[
+										25102,
+										25111
+									],
+									[
+										25480,
+										25489
+									],
+									[
+										25835,
+										25844
+									],
+									[
+										26228,
+										26241
+									],
+									[
+										26244,
+										26257
+									],
+									[
+										26416,
+										26429
+									],
+									[
+										26734,
+										26747
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								26007,
+								26007
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 11269.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "node_modules/grunt-contrib-jshint/node_modules/jshint/dist/jshint-rhino.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 633469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449992,
+								449992
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96087.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "test/spec/controllers/BebidasCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 660,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								509,
+								509
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "app/pedidos/js/controllers/ListaPedidosCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2990,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								72,
+								72
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -766,7 +2379,7 @@
 	"project": "sb-admin-angular.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -776,24 +2389,80 @@
 		"selected_items":
 		[
 			[
-				"",
-				"app/scripts/controllers/chartContoller.js"
+				"login",
+				"app/security/controllers/LoginCtrl.js"
 			],
 			[
-				"side",
-				"app/scripts/directives/sidebar/sidebar.html"
+				"",
+				"app/scripts/app.js"
+			],
+			[
+				"bo",
+				"bower.json"
+			],
+			[
+				"princi",
+				"app/security/services/Principal.js"
 			],
 			[
 				"app",
 				"app/scripts/app.js"
 			],
 			[
-				"chart",
-				"bower_components/angular-chart.js/angular-chart.js"
+				"loginc",
+				"app/security/controllers/LoginCtrl.js"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"authori",
+				"app/security/services/Authorization.js"
+			],
+			[
+				"gru",
+				"Gruntfile.js"
+			],
+			[
+				"inde",
+				"app/index.html"
 			],
 			[
 				"ped",
-				"app/scripts/controllers/PedidosCtrl.js"
+				"app/pedidos/views/pedidos.pendientes.html"
+			],
+			[
+				"main",
+				"app/scripts/controllers/main.js"
+			],
+			[
+				"form.js",
+				"app/scripts/controllers/form.js"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"side",
+				"app/scripts/directives/sidebar/sidebar.html"
+			],
+			[
+				"pedido",
+				"app/pedidos/js/services/Pedido.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"lista",
+				"app/pedidos/js/controllers/ListaPedidosCtrl.js"
+			],
+			[
+				"chart",
+				"bower_components/angular-chart.js/angular-chart.js"
 			],
 			[
 				"pedi",
@@ -812,10 +2481,6 @@
 				"bower_components/bootstrap/dist/css/bootstrap.css"
 			],
 			[
-				"index",
-				"app/index.html"
-			],
-			[
 				"ap",
 				"app/scripts/app.js"
 			],
@@ -832,24 +2497,12 @@
 				"Gruntfile.js"
 			],
 			[
-				"gru",
-				"bower_components/metisMenu/Gruntfile.js"
-			],
-			[
 				"angular-cha",
 				"bower_components/angular-chart.js/angular-chart.js"
 			],
 			[
-				"bower",
-				"bower.json"
-			],
-			[
 				"read",
 				"README.md"
-			],
-			[
-				"grun",
-				"Gruntfile.js"
 			],
 			[
 				"packa",
@@ -926,14 +2579,6 @@
 			[
 				"clie",
 				"app/scripts/controllers/ClienteCtrl.js"
-			],
-			[
-				"main",
-				"app/views/clientes/main.html"
-			],
-			[
-				"inde",
-				"app/index.html"
 			],
 			[
 				"angu",

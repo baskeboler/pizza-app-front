@@ -116,7 +116,7 @@
         all: {
           src: [
             'Gruntfile.js',
-            '<%= yeoman.app %>/scripts/{,*/}*.js'
+            '<%= yeoman.app %>/**/*.js'
           ]
         },
         test: {
@@ -174,7 +174,7 @@
       filerev: {
         dist: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
+            '<%= yeoman.dist %>/**/*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
@@ -229,8 +229,8 @@
           files: [{
             expand: true,
             src: '**/*.js',
-            dest: '<%= yeoman.dist %>/scripts',
-            cwd: '<%= yeoman.app %>/scripts'
+            dest: '<%= yeoman.dist %>',
+            cwd: '<%= yeoman.app %>'
           }]
         },
         options: {
@@ -288,9 +288,9 @@
         dist: {
           files: [{
             expand: true,
-            cwd: '<%= yeoman.app %>/scripts',
+            cwd: '<%= yeoman.app %>',
             src: '**/*.js',
-            dest: '<%= yeoman.dist %>/scripts'
+            dest: '<%= yeoman.dist %>'
           }]
         }
       },
