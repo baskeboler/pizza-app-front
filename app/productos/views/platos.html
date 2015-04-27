@@ -45,8 +45,8 @@
 						<td>Delete?</td>
 					</tr>
 				</thead>
-				<tbody>
-					<tr ng-repeat="plato in vm.listaPlatos">
+				<tbody ng-cloak>
+					<tr ng-repeat="plato in vm.listaPlatos" class="fx-fade-down fx-easing-bounce fx-speed-500">
 						<td>{{plato.nombre}}</td>
 						<td>{{plato.precio | currency}}</td>
 						<td>{{plato.descripcion}}</td>

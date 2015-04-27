@@ -1,11 +1,12 @@
 (function() {
 	'use strict';
 
-	angular.module("sbAdminApp").controller('PlatosController', PlatosCtrl);
+	angular.module("sbAdminApp")
+		.controller('PlatosController', PlatosCtrl);
 
-	PlatosCtrl.$inject = ['Plato', '$log'];
+	PlatosCtrl.$inject = ['Plato', '$log', '$timeout'];
 
-	function PlatosCtrl(Plato, $log) {
+	function PlatosCtrl(Plato, $log, $timeout) {
 		var vm = this;
 		vm.title = 'Platos';
 		vm.nueva = {};
@@ -17,48 +18,51 @@
 		vm.clearForm = clearForm;
 		vm.remove = removePlato;
 
-		vm.cargarLista();
+		$timeout(vm.cargarLista, 1000);
 
-		function crearNuevoPlato () {
-			Plato.create(vm.nueva).then(ok, showErrors);
+		function crearNuevoPlato() {
+			Plato.create(vm.nueva)
+				.then(ok, showErrors);
 
-			function ok () {
+			function ok() {
 				vm.listaPlatos.push(vm.nueva);
 				vm.clearForm();
 			}
 		}
 
-		function removePlato (plato) {
-			plato.remove().then(ok, showErrors);
+		function removePlato(plato) {
+			plato.remove()
+				.then(ok, showErrors);
 
-			function ok () {
+			function ok() {
 				_.remove(vm.listaPlatos, function(b) {
 					return b === plato;
 				});
 			}
 		}
 
-		function dismissError (error) {
+		function dismissError(error) {
 			_.remove(vm.errors, function(e) {
 				return e === error;
 			});
 		}
 
-		function cargarListaPlatos () {
-			Plato.getList().then(fillData, showErrors);
+		function cargarListaPlatos() {
+			Plato.getList()
+				.then(fillData, showErrors);
 
-			function fillData (data) {
+			function fillData(data) {
 				vm.listaPlatos = data;
 			}
 
 		}
-		
-		function showErrors (response) {
+
+		function showErrors(response) {
 			$log.debug('there was an error');
 			vm.errors.push(response);
 		}
 
-		function clearForm () {
+		function clearForm() {
 			vm.nueva = {};
 		}
 

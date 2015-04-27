@@ -175,6 +175,7 @@
         dist: {
           src: [
             '<%= yeoman.dist %>/**/*.js',
+            '<%= yeoman.dist %>/**/*.html',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
@@ -192,7 +193,10 @@
           flow: {
             html: {
               steps: {
-                js: ['concat', 'uglifyjs'],
+                js: [
+                  'concat'//, 
+                //  'uglifyjs'
+                ],
                 css: ['cssmin']
               },
               post: {}
@@ -203,7 +207,7 @@
 
       // Performs rewrites based on filerev and the useminPrepare configuration
       usemin: {
-        html: ['<%= yeoman.dist %>/{,*/}*.html'],
+        html: ['<%= yeoman.dist %>/index.html'],
         css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
         options: {
           assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
@@ -234,7 +238,7 @@
           }]
         },
         options: {
-          mangle: false
+          mangle: true
         }
       },
       // concat: {
@@ -288,7 +292,7 @@
         dist: {
           files: [{
             expand: true,
-            cwd: '<%= yeoman.app %>',
+            cwd: '<%= yeoman.dist %>',
             src: '**/*.js',
             dest: '<%= yeoman.dist %>'
           }]
@@ -298,7 +302,7 @@
       // Replace Google CDN references
       cdnify: {
         dist: {
-          html: ['<%= yeoman.dist %>/*.html']
+          html: ['<%= yeoman.dist %>/**/*.html']
         }
       },
 
@@ -398,6 +402,19 @@
       'ngAnnotate',
       'uglify',
       'htmlmin'
+    ])
+
+    grunt.registerTask('build2', [
+      'clean:dist',
+      'concurrent:dist',
+      'copy:dist',
+      'ngAnnotate',
+      'useminPrepare',
+      'concat:generated',
+      'cssmin:generated',
+      //'uglify:generated',
+      //'filerev:dist',
+      'usemin'
     ])
 
     grunt.registerTask('default', [

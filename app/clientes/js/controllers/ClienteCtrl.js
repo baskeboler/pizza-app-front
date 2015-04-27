@@ -4,15 +4,35 @@
 	angular.module('sbAdminApp')
 		.controller('ClienteController', ClienteController);
 
-	ClienteController.$inject = ['Cliente', '$log'];
+	ClienteController.$inject = ['Cliente', '$log', '$modal'];
 
-	function ClienteController(Cliente, $log) {
+	function ClienteController(Cliente, $log, $modal) {
 		var vm = this;
 		vm.titulo = 'Cosa de clientes';
 		vm.nuevo = { };
 		vm.selectedClient = [];
 		vm.listaClientes = [];
+		vm.clearSelection = clearSelection;
+		vm.deleteSelection = deleteSelection;
+		vm.crearCliente = crearCliente;
+		vm.abrirModalCrearCliente = abrirModalCrearCliente;
 
+		function abrirModalCrearCliente () {
+			var modal = $modal.open({
+				templateUrl: 'clientes/views/modals/crear-cliente-modal.html',
+				controller: 'CrearClienteModalInstanceController',
+				controllerAs: 'vm'
+			});
+
+			modal.result.then(creado, cancelado);
+			function creado (nuevo) {
+				$log.debug('[ClienteController] Cliente creado.');
+				vm.listaClientes.push(nuevo);
+			}
+			function cancelado (argument) {
+				$log.debug('[ClienteController] Cliente no creado.');
+			}
+		}
 		vm.gOpts = {
 			columnDefs: [{
 				field: 'nombre',
@@ -35,9 +55,6 @@
 			enableSorting: true
 		};
 		
-		vm.clearSelection = clearSelection;
-		vm.deleteSelection = deleteSelection;
-		vm.crearCliente = crearCliente;
 		//vm.clientes = Restangular.all('clientes');
 		Cliente.getList().then(function(result) {
 			$log.debug(result);

@@ -28,7 +28,7 @@
 						</div>
 					</p>
 					<div class="list-group">
-						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" ng-repeat="pedido in vm.listaPedidos track by $index " ng-class="{'list-group-item-danger': !pedido.estado.completo &&pedido.alerta, 'list-group-item-success': pedido.estado.completo}">
+						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" ng-repeat="pedido in vm.listaPedidos track by $index " ng-class="{'list-group-item-danger': !pedido.estado.completo &&pedido.alerta, 'list-group-item-success': pedido.estado.completo}" ng-click="vm.verPedido(pedido)">
 							<h4 class="list-group-item-heading">
 								{{pedido.cliente.nombre}}
 								<a class="close" ng-click="vm.remove(pedido)">&times;</a>

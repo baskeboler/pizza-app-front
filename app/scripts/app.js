@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict'
   /**
    * @ngdoc overview
@@ -33,9 +33,23 @@
       //$httpProvider.defaults.withCredentials = true;
       //$httpProvider.defaults.headers.common.JSESSIONID = 
     })
-    .config(['RestangularProvider', '$httpProvider', function (RestangularProvider, $httpProvider) {
+    .config(['RestangularProvider', '$httpProvider', function(RestangularProvider, $httpProvider) {
       RestangularProvider.setBaseUrl('http://localhost:8080/api')
-      RestangularProvider.addResponseInterceptor(function (data, operation, what) {
+      RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+      /*if (operation === 'post' && response.status === 201) {
+        var location = response.headers('Location');
+        console.log(data);
+        console.log(deferred);
+        console.log(response);
+        console.log(location);
+        response.config.data._links = {
+          self: {
+            href: location
+          }
+        };
+        deferred.resolve(response);
+        //return location;
+      }*/
         if (what === 'clientes') {
           if (operation === 'getList') {
             return (data._embedded) ? data._embedded.clientes : []
@@ -63,16 +77,16 @@
         }
       })
       RestangularProvider.setRestangularFields({
-        selfLink: '_links.self.href'
-      })
-      /*RestangularProvider.addFullRequestInterceptor(
-        function (element, operation, route, url, headers, params, httpConfig) {
-          return {
-            headers: $httpProvider.defaults.headers.common
-          };
-      });*/
+          selfLink: '_links.self.href'
+        })
+        /*RestangularProvider.addFullRequestInterceptor(
+          function (element, operation, route, url, headers, params, httpConfig) {
+            return {
+              headers: $httpProvider.defaults.headers.common
+            };
+        });*/
     }])
-    .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       $ocLazyLoadProvider.config({
         debug: true,
         events: true,
@@ -80,13 +94,15 @@
           name: 'sbAdminApp',
           reconfig: false,
           files: [
+            'scripts/filters/FromNow.js',
             'scripts/directives/header/header.js',
             'scripts/directives/header/header-notification/header-notification.js',
             'scripts/directives/sidebar/sidebar.js',
-            'scripts/directives/sidebar/sidebar-search/sidebar-search.js' /*,
-            'scripts/services/ApiHost.js',
-            'security/services/Principal.js',
-            'security/services/Authorization.js'*/
+            'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+            /*,
+                       'scripts/services/ApiHost.js',
+                       'security/services/Principal.js',
+                       'security/services/Authorization.js'*/
           ]
         }, {
           name: 'toggle-switch',
@@ -135,7 +151,7 @@
             roles: ['ROLE_USER']
           },
           resolve: {
-            loadMyDirectives: function ($ocLazyLoad) {
+            loadMyDirectives: function($ocLazyLoad) {
               return [
                 $ocLazyLoad.load('sbAdminApp'),
                 $ocLazyLoad.load('toggle-switch'),
@@ -150,12 +166,13 @@
           controller: 'BebidasController',
           controllerAs: 'vm',
           resolve: {
-            loadMyControllers: function ($ocLazyLoad) {
+            loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
                   'productos/js/controllers/BebidasCtrl.js',
-                  'productos/js/services/Bebida.js'
+                  'productos/js/services/Bebida.js',
+                  'productos/js/controllers/modals/CrearBebidaModalInstanceCtrl.js'
                 ]
               })
             }
@@ -167,7 +184,7 @@
           controller: 'PlatosController',
           controllerAs: 'vm',
           resolve: {
-            loadMyControllers: function ($ocLazyLoad) {
+            loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -183,12 +200,10 @@
           abstract: true,
           template: '<ui-view />',
           resolve: {
-            load: function ($ocLazyLoad) {
+            load: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
-                  'pedidos/js/services/Pedido.js',
-                  'pedidos/js/filters/FromNow.js',
                   'pedidos/js/services/Pedido.js'
                 ]
               })
@@ -201,11 +216,12 @@
           controller: 'ListaPedidosController',
           controllerAs: 'vm',
           resolve: {
-            load: function ($ocLazyLoad) {
+            load: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
-                  'pedidos/js/controllers/ListaPedidosCtrl.js'
+                  'pedidos/js/controllers/ListaPedidosCtrl.js',
+                  'pedidos/js/controllers/VerPedidoModalInstanceCtrl.js'
                 ]
               })
             }
@@ -217,7 +233,7 @@
           controller: 'ListaPedidosPendientesController',
           controllerAs: 'vm',
           resolve: {
-            load: function ($ocLazyLoad) {
+            load: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -233,7 +249,7 @@
           controller: 'PedidosController',
           controllerAs: 'vm',
           resolve: {
-            loadMyControllers: function ($ocLazyLoad) {
+            loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -252,7 +268,7 @@
           controller: 'MainCtrl',
           templateUrl: '/views/dashboard/home.html',
           resolve: {
-            loadMyFiles: function ($ocLazyLoad) {
+            loadMyFiles: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -272,12 +288,13 @@
           controllerAs: 'vm',
           url: '/clientes',
           resolve: {
-            loadMyControllers: function ($ocLazyLoad) {
+            loadMyControllers: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
                   'clientes/js/controllers/ClienteCtrl.js',
-                  'clientes/js/services/Cliente.js'
+                  'clientes/js/services/Cliente.js',
+                  'clientes/js/controllers/CrearClienteModalInstanceCtrl.js'
                 ]
               })
             }
@@ -297,7 +314,7 @@
           controllerAs: 'vm',
           url: '/login',
           resolve: {
-            load: function ($ocLazyLoad) {
+            load: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -319,7 +336,7 @@
             msg: 'Access Denied'
           },
           resolve: {
-            load: function ($ocLazyLoad) {
+            load: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
@@ -337,7 +354,7 @@
           url: '/chart',
           controller: 'ChartCtrl',
           resolve: {
-            loadMyFiles: function ($ocLazyLoad) {
+            loadMyFiles: function($ocLazyLoad) {
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: ['scripts/controllers/chartContoller.js']
@@ -375,22 +392,21 @@
         })
     }])
     .run(['$rootScope', '$state', '$stateParams', 'authorization', 'principal',
-      function ($rootScope, $state, $stateParams, authorization, principal) {
-        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+      function($rootScope, $state, $stateParams, authorization, principal) {
+        $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
           // track the state the user wants to go to; authorization service needs this
           $rootScope.toState = toState
           $rootScope.toStateParams = toStateParams
-          // if the principal is resolved, do an authorization check immediately. otherwise,
-          // it'll be done when the state it resolved.
+            // if the principal is resolved, do an authorization check immediately. otherwise,
+            // it'll be done when the state it resolved.
           if (principal.isIdentityResolved()) {
             authorization.authorize()
           }
         })
       }
     ])
-    .run(function($rootScope, $state, $stateParams){
+    .run(function($rootScope, $state, $stateParams) {
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
-    })
-    ;
-})()
+    });
+})();

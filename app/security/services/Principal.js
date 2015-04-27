@@ -1,11 +1,11 @@
-(function () {
-  'use strict'
+(function() {
+  'use strict';
   /*globals angular:false*/
   angular
     .module('sbAdminApp')
     .factory('principal', principal)
 
-  function principal ($q, $http, $timeout, appConfig) {
+  function principal($q, $http, $timeout, appConfig) {
     var _identity, _authenticated = false
 
     return {
@@ -17,21 +17,22 @@
       identity: identity
     }
 
-    function isIdentityResolved () {
+    function isIdentityResolved() {
       return angular.isDefined(_identity)
     }
-    function isAuthenticated () {
+
+    function isAuthenticated() {
       return _authenticated
     }
 
-    function isInRole (role) {
+    function isInRole(role) {
       if (!_authenticated || !_identity.roles) {
         return false
       }
       return _identity.roles[role];
     }
 
-    function isInAnyRole (roles) {
+    function isInAnyRole(roles) {
       if (!_authenticated || !_identity.roles) {
         return false
       }
@@ -43,12 +44,12 @@
       return false
     }
 
-    function authenticate (identity) {
+    function authenticate(identity) {
       _identity = identity
       _authenticated = identity !== null
     }
 
-    function identity (force) {
+    function identity(force) {
       var deferred = $q.defer()
       if (force) {
         _identity = undefined
@@ -61,18 +62,21 @@
       }
 
       /*jslint validthis:true*/
-      $http.get(appConfig.apiHost + '/api/identity', {ignoreErrors: true})
-        .success(function (data) {
+      $http.get(appConfig.apiHost + '/api/identity', {
+          ignoreErrors: true
+        })
+        .success(function(data) {
           _identity = data
           _authenticated = true
           deferred.resolve(_identity)
-        }).error(function () {
-        _identity = null
-        _authenticated = false
-        deferred.resolve(_identity)
-      })
+        })
+        .error(function() {
+          _identity = null
+          _authenticated = false
+          deferred.resolve(_identity)
+        })
 
       return deferred.promise
     }
   }
-})()
+})();

@@ -1,0 +1,21 @@
+<div class="modal-header">
+	<h4 class="modal-title">Ver Pedido</h4>
+</div>
+<div class="modal-body">
+	<dl class="dl-horizontal">
+		<dt>Cliente</dt>
+		<dd>{{vm.pedido.cliente.nombre}}</dd>
+
+		<dt>Dirección</dt>
+		<dd>{{vm.pedido.direccion}}</dd>
+
+		<dt>Fecha</dt>
+		<dd>{{vm.pedido.fecha | fromnow}}</dd>
+
+		<dt>Estado</dt>
+		<dd>{{vm.pedido.estado.id}}</dd>
+	</dl>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="vm.ok()"><i class="fa fa-check fa-fw"></i>Volver</button>
+</div>

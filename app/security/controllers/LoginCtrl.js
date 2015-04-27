@@ -24,9 +24,10 @@
       	var restangularHeader = {};
       	restangularHeader[appConfig.xAuthTokenHeaderName] = user.token;
       	Restangular.setDefaultHeaders(restangularHeader);
-      	if ($rootScope.desiredToState !== undefined) {
-      		$state.go($rootScope.desiredToState);
-      		$rootScope.desiredToState = undefined;
+      	if ($rootScope.toState !== undefined) {
+      		$state.go($rootScope.toState, $rootScope.toStateParams);
+      		$rootScope.toState = undefined;
+          $rootScope.toStateParams = undefined;
       	} else {
       		$state.go('dashboard.home');
       	}

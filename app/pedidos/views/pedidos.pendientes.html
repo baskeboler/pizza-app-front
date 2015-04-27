@@ -21,8 +21,8 @@
 				<div class="panel-heading">Pedidos</div>
 				<div class="panel-body">
 					
-					<div class="list-group col col-md-4">
-						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" 
+					<div class="list-group">
+						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600 col col-md-4" 
 							ng-repeat="pedido in vm.listaPedidos track by $index " 
 							ng-class="{'list-group-item-danger': !pedido.estado.completo &&pedido.alerta, 'list-group-item-success': pedido.estado.completo}">
 							<h4 class="list-group-item-heading">
@@ -30,31 +30,27 @@
 								<a class="close" ng-click="vm.remove(pedido)">&times;</a>
 							</h4>
 							<span class="row">
-								<span class="col col-sm-8">
-									<dl class="dl-horizontal">
-										<dt>Direccion</dt>
-										<dd>
-											{{pedido.direccion}}
-											
-										</dd>
-										<dt>fecha</dt>
-										<dd>
-											{{pedido.fecha | fromnow}}
-											
-										</dd>
-										<dt>estado</dt>
-										<dd>
-											{{pedido.estado.id}} 
-											
-										</dd>
-									</dl>
-									<button class="btn btn-primary" ng-click="vm.nextState($index, pedido)">next</button>
-								</span>
-								<span class="col col-sm-4">
-									<div class="badge badge-info pull-right">
-										<h4>{{pedido.total | currency}}</h4>
-									</div>
-								</span>
+								<dl class="dl-horizontal">
+									<dt>Direccion</dt>
+									<dd>
+										{{pedido.direccion}}
+										
+									</dd>
+									<dt>fecha</dt>
+									<dd>
+										{{pedido.fecha | fromnow}}
+										
+									</dd>
+									<dt>estado</dt>
+									<dd>
+										{{pedido.estado.id}} 
+										
+									</dd>
+								</dl>
+								<button class="btn btn-primary" ng-click="vm.nextState($index, pedido)">next</button>
+								<div class="badge badge-info pull-right">
+									<h4>{{pedido.total | currency}}</h4>
+								</div>
 							</span>
 							<p>
 								<div class="progress">

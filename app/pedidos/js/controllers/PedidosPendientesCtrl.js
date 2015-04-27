@@ -5,7 +5,7 @@
     .module('sbAdminApp')
     .controller('ListaPedidosPendientesController', ListaPedidosPendientesController)
 
-  function ListaPedidosPendientesController (Pedido, notify, $log, $timeout, $interval, $q) {
+  function ListaPedidosPendientesController ($scope, Pedido, notify, $log, $timeout, $interval, $q) {
     var vm = this
     vm.listaPedidos = []
     vm.listaPendientes = []
@@ -27,8 +27,12 @@
     }
 
     $timeout(vm.cargarPedidos, 1000)
-    $interval(vm.cargarPedidos, 5000)
-
+    var timer = $interval(vm.cargarPedidos, 5000)
+    $scope.$on('$destroy', function() {
+      $log.debug('[pedidos pendietes] Saliendo de pantalla');
+      $interval.cancel(timer);
+    });
+    
     function nextState (i, pedido) {
       // var p = Restangular.copy(pedido)
 

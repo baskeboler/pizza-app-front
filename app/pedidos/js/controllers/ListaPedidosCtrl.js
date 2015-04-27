@@ -4,7 +4,7 @@
   angular
     .module('sbAdminApp')
     .controller('ListaPedidosController', ListaPedidosController)
-  function ListaPedidosController (Pedido, notify, $log, $timeout, $scope) {
+  function ListaPedidosController (Pedido, notify, $log, $timeout, $scope, $modal) {
     var vm = this
     vm.listaPedidos = []
     vm.cargarPedidos = cargarPedidos
@@ -13,6 +13,28 @@
     vm.getTotal = getTotal
     vm.nextState = nextState
     vm.remove = remove
+    vm.verPedido = verPedido
+
+    function verPedido (pedido) {
+      var modal = $modal.open({
+        templateUrl: '/pedidos/views/modals/ver-pedido-modal.html',
+        controller: 'VerPedidoModalInstanceController',
+        controllerAs: 'vm',
+        resolve: {
+          pedido: function() {
+            return pedido;
+          } 
+        }
+      });
+
+      modal.result.then(ok, cancel);
+      function ok () {
+        $log.debug('dialogo cerrado - ok');
+      }
+      function cancel () {
+        $log.debug('dialogo cerrado - salir');
+      }
+    }
     function remove (p) {
       p.remove().then(ok, error)
       function ok (argument) {

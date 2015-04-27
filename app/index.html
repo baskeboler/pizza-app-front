@@ -5,6 +5,17 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <style type="text/css">
+        [ng-cloak].splash {
+          display: block !important;
+        }
+        [ng-cloak] {display: none;}
+        /* some naive styles for a splash page */
+        .splash {
+          display: none;
+        }
+    </style>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -23,11 +34,19 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/sb-admin-2.css">
     <link rel="stylesheet" href="styles/timeline.css">
-    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css">
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" type="text/css">
     <!-- endbuild -->
+    </head>
+   
+    <body>
+    <div ng-app="sbAdminApp">
+    <!-- The splash screen must be first -->
+        <div class="splash jumbotron" ng-cloak>
+          <h1>Loading</h1>
+        </div>
+
+        <div ui-view></div>
+
     
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -62,8 +81,8 @@
     <!-- endbuild -->
     
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
         <script src="js/sb-admin-2.js"></script>
+        <script src="scripts/app.js"></script>
         <script src="scripts/services/ApiHost.js"></script>
         <script src="security/services/loginInterceptor.js"></script>
         <script src="security/services/Principal.js"></script>
@@ -88,13 +107,7 @@
     <!-- <link href="styles/morrisjs/morris.css" rel="stylesheet"> -->
 
 
-    </head>
-   
-    <body>
 
-    <div ng-app="sbAdminApp">
-
-        <div ui-view></div>
 
     </div>
 

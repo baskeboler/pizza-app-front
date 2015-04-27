@@ -1,7 +1,4 @@
-## Restaurant managemente app based on "SB Admin v2.0 rewritten in AngularJS"
-
-
-
+## Pizza bar management app based on "SB Admin v2.0 rewritten in AngularJS"
 
 ## Installation
 1. Clone this project or Download that ZIP file
@@ -12,7 +9,7 @@
 - `npm start` - a shortcut for `grunt serve`
 - `npm run dist` - a shortcut for `grunt serve:dist` to minify the files for deployment
 
-Simple java spring backend to run this app is [available](https://github.com/baskeboler/pizza-app-backend)
+Simple java spring-boot based backend to run this app is [available](https://github.com/baskeboler/pizza-app-backend)
 
 ## Roadmap
 

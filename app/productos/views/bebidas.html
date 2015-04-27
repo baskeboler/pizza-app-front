@@ -11,8 +11,11 @@
 				<p>Status Code: {{error.status}}</p>
 				<p>{{error.message}}</p>
 			</div>
+			<button class="btn btn-default" ng-click="vm.abrirModalCrearBebida()">
+				<i class="fa fa-plus fa-fw"></i> Crear Nueva Bebida
+			</button>
 			<!-- /errors -->
-			<form name="bebidaForm" role="form" ng-submit="vm.crearBebida()">
+			<!-- <form name="bebidaForm" role="form" ng-submit="vm.crearBebida()">
 				<div class="form-group">
 					<label>Nombre</label>
 					<input type="text" ng-model="vm.nueva.nombre" class="form-control" required>
@@ -34,7 +37,7 @@
 					<button class="btn btn-primary" type="submit"><i class="fa fa-plus fa-fw"></i> Crear Bebida</button>
 					<button class="btn btn-default" type="reset" ng-click="vm.clearForm()"><i class="fa fa-eraser fa-fw"></i> Reset</button>
 				</div>
-			</form>
+			</form> -->
 			<!-- tabla bebidas -->
 			<table class="table">
 				<thead>
@@ -45,8 +48,8 @@
 						<td>Delete?</td>
 					</tr>
 				</thead>
-				<tbody>
-					<tr ng-repeat="bebida in vm.listaBebidas" class="fx-bounce-normal fx-easing-elastic fx-speed-800">
+				<tbody ng-cloak>
+					<tr ng-repeat="bebida in vm.listaBebidas" class="fx-fade-down fx-easing-bounce fx-speed-500">
 						<td>{{bebida.nombre}}</td>
 						<td>{{bebida.precio | currency}}</td>
 						<td>{{bebida.descripcion}}</td>

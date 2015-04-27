@@ -30,6 +30,8 @@
       var method = response.method
       var url = config.url
       if (status === 401 || status === 403) {
+        $rootScope.toState = $rootScope.$state;
+        $rootScope.toStateParams = $rootScope.$stateParams;
         $location.path('/login')
         $log.debug('[interceptor] Error ' + status);
       } else {
