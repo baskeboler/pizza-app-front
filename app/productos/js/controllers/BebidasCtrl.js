@@ -6,19 +6,28 @@
   BebidasCtrl.$inject = ['$log', 'Bebida', '$timeout', '$modal', 'notify']
 
   function BebidasCtrl($log, Bebida, $timeout, $modal, notify) {
-    var vm = this
-    vm.title = 'Bebidas'
-    vm.nueva = {}
-    vm.listaBebidas = []
-    vm.errors = []
-    vm.crearBebida = crearBebida
-    vm.cargarLista = cargarListaBebidas
-    vm.dismissError = dismissError
-    vm.clearForm = clearForm
-    vm.remove = removeBebida
+    var vm = this;
+    vm.title = 'Bebidas';
+    vm.nueva = {};
+    vm.listaBebidas = null;
+    vm.errors = [];
+    vm.page = null;
+    vm.currentPage = 1;
+    vm.pageSize = 5;
+    vm.crearBebida = crearBebida;
+    vm.cargarLista = cargarListaBebidas;
+    vm.dismissError = dismissError;
+    vm.remove = removeBebida;
     vm.abrirModalCrearBebida = abrirModalCrearBebida;
+    vm.pageChanged = pageChanged;
 
-    $timeout(vm.cargarLista, 1000)
+    $timeout(cargarListaBebidas, 1000)
+
+    function pageChanged() {
+      // body...
+      vm.listaBebidas = null;
+      $timeout(cargarListaBebidas, 500);
+    }
 
     function abrirModalCrearBebida() {
       var modal = $modal.open({
@@ -69,11 +78,18 @@
     }
 
     function cargarListaBebidas() {
-      Bebida.getList()
+      Bebida.getList({
+          page: vm.currentPage - 1,
+          size: vm.pageSize
+        })
         .then(fillData, showErrors)
 
       function fillData(data) {
-        vm.listaBebidas = data
+        $log.debug('[fillData] data received.')
+        $log.debug(data);
+        vm.listaBebidas = data;
+        vm.page = data.page;
+        vm.currentPage = vm.page.number + 1;
       }
     }
 

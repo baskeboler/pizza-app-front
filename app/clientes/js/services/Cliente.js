@@ -1,4 +1,4 @@
-(function(){
+(function() {
 
 	'use strict';
 	angular
@@ -6,23 +6,34 @@
 		.factory('Cliente', Cliente);
 
 	Cliente.$inject = ['Restangular', '$log'];
-	function Cliente (Restangular, $log) {
+
+	function Cliente(Restangular, $log) {
 		// body...
-		var service =  {
+		var service = {
 			getList: getList,
-			create: createCliente
+			create: createCliente,
+			suggest: suggest
 		};
 
 		return service;
 
-		function getList () {
-			// body...
-			return Restangular.all('clientes').getList();
+		function suggest(qString) {
+			return Restangular.all('')
+				.customGETLIST('clientes/search/suggest', {
+					q: qString
+				})
 		}
 
-		function createCliente (cliente) {
+		function getList() {
 			// body...
-			return Restangular.all('clientes').post(cliente);
+			return Restangular.all('clientes')
+				.getList();
+		}
+
+		function createCliente(cliente) {
+			// body...
+			return Restangular.all('clientes')
+				.post(cliente);
 		}
 	}
 })();

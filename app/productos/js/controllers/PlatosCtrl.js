@@ -4,9 +4,9 @@
 	angular.module("sbAdminApp")
 		.controller('PlatosController', PlatosCtrl);
 
-	PlatosCtrl.$inject = ['Plato', '$log', '$timeout'];
+	PlatosCtrl.$inject = ['Plato', '$log', '$timeout', '$modal', 'notify'];
 
-	function PlatosCtrl(Plato, $log, $timeout) {
+	function PlatosCtrl(Plato, $log, $timeout, $modal, notify) {
 		var vm = this;
 		vm.title = 'Platos';
 		vm.nueva = {};
@@ -17,8 +17,30 @@
 		vm.dismissError = dismissError;
 		vm.clearForm = clearForm;
 		vm.remove = removePlato;
+		vm.abrirModalCrearPlato = abrirModalCrearPlato;
 
 		$timeout(vm.cargarLista, 1000);
+
+		function abrirModalCrearPlato() {
+			var modal = $modal.open({
+				templateUrl: 'productos/views/modals/crear-plato-modal.html',
+				controller: 'CrearPlatoModalInstanceController',
+				controllerAs: 'vm'
+			});
+
+			modal.result.then(ok, cancelar);
+
+			function ok(argument) {
+				// body...
+				notify('Plato creado');
+				cargarListaPlatos();
+
+			}
+
+			function cancelar(argument) {
+				// body...
+			}
+		}
 
 		function crearNuevoPlato() {
 			Plato.create(vm.nueva)

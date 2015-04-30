@@ -11,8 +11,11 @@
 				<p>Status Code: {{error.status}}</p>
 				<p>{{error.message}}</p>
 			</div>
+			<button class="btn btn-default" ng-click="vm.abrirModalCrearPlato()">
+				<i class="fa fa-plus fa-fw"></i> Crear Nuevo Plato
+			</button>
 			<!-- /errors -->
-			<form name="platoForm" role="form" ng-submit="vm.crearPlato()">
+			<!-- <form name="platoForm" role="form" ng-submit="vm.crearPlato()">
 				<div class="form-group">
 					<label>Nombre</label>
 					<input type="text" ng-model="vm.nueva.nombre" class="form-control" required>
@@ -34,15 +37,15 @@
 					<button class="btn btn-primary" type="submit"><i class="fa fa-plus fa-fw"></i> Crear Plato</button>
 					<button class="btn btn-default" type="button" ng-click="vm.clearForm()"><i class="fa fa-eraser fa-fw"></i> Reset</button>
 				</div>
-			</form>
+			</form> -->
 			<!-- tabla platos -->
 			<table class="table">
 				<thead>
 					<tr>
-						<td>Nombre</td>
-						<td>Precio</td>
-						<td>Descripcion</td>
-						<td>Delete?</td>
+						<th>Nombre</th>
+						<th>Precio</th>
+						<th>Descripcihn</td>
+						<th>Delete?</hd>
 					</tr>
 				</thead>
 				<tbody ng-cloak>

@@ -1,4 +1,4 @@
-(function () { // Generated on 2015-01-21 using generator-angular 0.9.2
+(function() { // Generated on 2015-01-21 using generator-angular 0.9.2
   'use strict'
   // # Globbing
   // for performance reasons we're only matching one level down:
@@ -6,7 +6,7 @@
   // use this if you want to recursively match all subfolders:
   // 'test/spec/**/*.js'
   /*globals module:false, require:false*/
-  module.exports = function (grunt) {
+  module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt)
 
@@ -15,7 +15,8 @@
 
     // Configurable paths for the application
     var appConfig = {
-      app: require('./bower.json').appPath || 'app',
+      app: require('./bower.json')
+        .appPath || 'app',
       dist: 'dist'
     }
 
@@ -24,6 +25,9 @@
       // Project settings
       yeoman: appConfig,
 
+      htmllint: {
+        all: ['app/**/*.html']
+      },
       // Watches files for changes and runs tasks based on the changed files
       watch: {
         bower: {
@@ -48,6 +52,10 @@
         gruntfile: {
           files: ['Gruntfile.js']
         },
+        html: {
+          files: ['<%= yeoman.app %>/**/*.html'],
+          tasks: ['htmllint']
+        },
         livereload: {
           options: {
             livereload: '<%= connect.options.livereload %>'
@@ -71,10 +79,11 @@
         livereload: {
           options: {
             open: true,
-            middleware: function (connect) {
+            middleware: function(connect) {
               return [
                 connect.static('.tmp'),
-                connect().use(
+                connect()
+                .use(
                   '/bower_components',
                   connect.static('./bower_components')
                 ),
@@ -86,11 +95,12 @@
         test: {
           options: {
             port: 9001,
-            middleware: function (connect) {
+            middleware: function(connect) {
               return [
                 connect.static('.tmp'),
                 connect.static('test'),
-                connect().use(
+                connect()
+                .use(
                   '/bower_components',
                   connect.static('./bower_components')
                 ),
@@ -194,8 +204,8 @@
             html: {
               steps: {
                 js: [
-                  'concat'//, 
-                //  'uglifyjs'
+                  'concat' //, 
+                  //  'uglifyjs'
                 ],
                 css: ['cssmin']
               },
@@ -310,17 +320,17 @@
       copy: {
         dist: {
           files: [{
-            expand: true,
-            dot: true,
-            cwd: '<%= yeoman.app %>',
-            dest: '<%= yeoman.dist %>',
-            src: ['**']
-          }, {
-            expand: true,
-            cwd: 'bower_components',
-            dest: '<%= yeoman.dist %>/bower_components',
-            src: ['**']
-          },
+              expand: true,
+              dot: true,
+              cwd: '<%= yeoman.app %>',
+              dest: '<%= yeoman.dist %>',
+              src: ['**']
+            }, {
+              expand: true,
+              cwd: 'bower_components',
+              dest: '<%= yeoman.dist %>/bower_components',
+              src: ['**']
+            },
 
             {
               expand: true,
@@ -367,7 +377,7 @@
       }
     })
 
-    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+    grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
       if (target === 'dist') {
         return grunt.task.run(['build', 'connect:dist:keepalive'])
       }
@@ -381,7 +391,7 @@
       ])
     })
 
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
       grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.')
       grunt.task.run(['serve:' + target])
     })

@@ -1,6 +1,6 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-lg-12">
+	
+		
 			<h1 class="page-header">{{vm.title}}</h1>
 
 			<!-- errors -->
@@ -11,45 +11,24 @@
 				<p>Status Code: {{error.status}}</p>
 				<p>{{error.message}}</p>
 			</div>
-			<button class="btn btn-default" ng-click="vm.abrirModalCrearBebida()">
+			<!-- /errors -->
+			
+			<!-- tabla bebidas -->
+				
+			<button class="btn btn-default" type="button" ng-click="vm.abrirModalCrearBebida()">
 				<i class="fa fa-plus fa-fw"></i> Crear Nueva Bebida
 			</button>
-			<!-- /errors -->
-			<!-- <form name="bebidaForm" role="form" ng-submit="vm.crearBebida()">
-				<div class="form-group">
-					<label>Nombre</label>
-					<input type="text" ng-model="vm.nueva.nombre" class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label>Precio</label>
-					<div class="input-group">
-						<div class="input-group-addon">$</div>
-						<input type="number" class="form-control" ng-model="vm.nueva.precio" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label>Descripcion</label>
-					<textarea ng-model="vm.nueva.descripcion" class="form-control">
-						
-					</textarea>
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary" type="submit"><i class="fa fa-plus fa-fw"></i> Crear Bebida</button>
-					<button class="btn btn-default" type="reset" ng-click="vm.clearForm()"><i class="fa fa-eraser fa-fw"></i> Reset</button>
-				</div>
-			</form> -->
-			<!-- tabla bebidas -->
 			<table class="table">
 				<thead>
 					<tr>
-						<td>Nombre</td>
-						<td>Precio</td>
-						<td>Descripcion</td>
-						<td>Delete?</td>
+						<th>Nombre</th>
+						<th>Precio</th>
+						<th>Descripcihn</td>
+						<th>Delete?</hd>
 					</tr>
 				</thead>
 				<tbody ng-cloak>
-					<tr ng-repeat="bebida in vm.listaBebidas" class="fx-fade-down fx-easing-bounce fx-speed-500">
+					<tr ng-repeat="bebida in vm.listaBebidas" class="fx-fade-right fx-easing-bounce fx-speed-500" ng-cloak>
 						<td>{{bebida.nombre}}</td>
 						<td>{{bebida.precio | currency}}</td>
 						<td>{{bebida.descripcion}}</td>
@@ -57,6 +36,14 @@
 					</tr>
 				</tbody>
 			</table>
+			<footer>
+				<pagination total-items="vm.page.totalElements"
+									ng-model="vm.currentPage"
+									num-pages="vm.page.totalPages"
+									items-per-page="vm.pageSize"
+									ng-change="vm.pageChanged()"
+									class="nav navbar-nav"></pagination>
+			</footer>
 			<!-- /tabla bebidas -->
 
 		</div>

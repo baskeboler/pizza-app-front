@@ -4,7 +4,7 @@
 		.module('sbAdminApp')
 		.factory('Bebida', Bebida);
 
-	function Bebida (Restangular, $log) {
+	function Bebida(Restangular, $log) {
 		var service = {
 			getList: getList,
 			create: create
@@ -12,12 +12,14 @@
 
 		return service;
 
-		function getList () {
-			return Restangular.all('bebidas').getList();
+		function getList(pagination) {
+			return Restangular.all('bebidas')
+				.getList(pagination);
 		}
 
-		function create (bebida) {
-			return Restangular.all('bebidas').post(bebida);
+		function create(bebida) {
+			return Restangular.all('bebidas')
+				.post(bebida);
 		}
 	}
 })();

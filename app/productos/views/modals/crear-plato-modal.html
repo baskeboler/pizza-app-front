@@ -1,0 +1,31 @@
+<div class="modal-header">
+	<h4 class="modal-title">Crear Plato</h4>
+</div>
+<form ng-submit="vm.crearPlato()" role="form">
+	<div class="modal-body">
+		<div class="form-group">
+			<label>Nombre</label>
+			<input type="text" ng-model="vm.nueva.nombre" class="form-control" required>
+		</div>
+		<div class="form-group">
+			<label>Precio</label>
+			<div class="input-group">
+				<div class="input-group-addon">$</div>
+				<input type="number" class="form-control" ng-model="vm.nueva.precio" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Descripcion</label>
+			<textarea ng-model="vm.nueva.descripcion" class="form-control">
+				
+			</textarea>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="form-group">
+			<button class="btn btn-primary" type="submit"><i class="fa fa-plus fa-fw"></i> Crear Plato</button>
+			<button class="btn btn-default" type="reset"><i class="fa fa-eraser fa-fw"></i> Reset</button>
+		</div>
+		
+	</div>
+</form>

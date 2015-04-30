@@ -16,7 +16,7 @@
 
 	</style>
 	<div class="row">	
-		<div class="col col-sm-6">
+		<div class="col col-sm-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">Pedidos</div>
 				<div class="panel-body">
@@ -27,52 +27,46 @@
 								<input type="checkbox" ng-model="vm.filtrarCompletos" > Filtrar completos</label>
 						</div>
 					</p>
+					<pagination total-items="vm.page.totalElements"
+								ng-model="vm.currentPage"
+								num-pages="vm.page.totalPages"
+								items-per-page="vm.page.size"
+								ng-change="vm.pageChanged()">
+					</pagination>
 					<div class="list-group">
 						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600" ng-repeat="pedido in vm.listaPedidos track by $index " ng-class="{'list-group-item-danger': !pedido.estado.completo &&pedido.alerta, 'list-group-item-success': pedido.estado.completo}" ng-click="vm.verPedido(pedido)">
 							<h4 class="list-group-item-heading">
 								{{pedido.cliente.nombre}}
 								<a class="close" ng-click="vm.remove(pedido)">&times;</a>
 							</h4>
-							<span class="row">
-								<span class="col col-sm-8">
-									<dl class="dl-horizontal">
-										<dt>Direccion</dt>
-										<dd>
-											{{pedido.direccion}}
-											
-										</dd>
-										<dt>fecha</dt>
-										<dd>
-											{{pedido.fecha | fromnow}}
-											
-										</dd>
-										<dt>estado</dt>
-										<dd>
-											{{pedido.estado.id}} 
-											
-										</dd>
-									</dl>
-									<button class="btn btn-primary" ng-click="vm.nextState($index, pedido)">next</button>
-								</span>
-								<span class="col col-sm-4">
-									<div class="badge badge-info pull-right">
-										<h4>{{pedido.total | currency}}</h4>
-									</div>
-								</span>
-							</span>
-							<p>
-								<div class="progress">
-										<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{pedido.estado.progreso}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{pedido.estado.progreso}}%;">
-											{{pedido.estado.progreso}}%
-										</div>
-									</div>
-							</p>
+							<dl class="dl-horizontal">
+								<dt>Direccion</dt>
+								<dd>
+									{{pedido.direccion}}
+									
+								</dd>
+								<dt>fecha</dt>
+								<dd>
+									{{pedido.fecha | fromnow}}
+									
+								</dd>
+								<dt>estado</dt>
+								<dd>
+									{{pedido.estado.id}} 
+									
+								</dd>
+							</dl>
+							
+							<div class="badge badge-info pull-right">
+								<h4>{{pedido.total | currency}}</h4>
+							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col col-sm-6">
+		<div class="col col-sm-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					Información General

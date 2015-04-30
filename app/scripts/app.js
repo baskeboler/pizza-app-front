@@ -36,55 +36,44 @@
     .config(['RestangularProvider', '$httpProvider', function(RestangularProvider, $httpProvider) {
       RestangularProvider.setBaseUrl('http://localhost:8080/api')
       RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-      /*if (operation === 'post' && response.status === 201) {
-        var location = response.headers('Location');
-        console.log(data);
-        console.log(deferred);
-        console.log(response);
-        console.log(location);
-        response.config.data._links = {
-          self: {
-            href: location
+        /*if (operation === 'post' && response.status === 201) {
+          var location = response.headers('Location');
+          console.log(data);
+          console.log(deferred);
+          console.log(response);
+          console.log(location);
+          response.config.data._links = {
+            self: {
+              href: location
+            }
+          };
+          deferred.resolve(response);
+          //return location;
+        }*/
+        if (operation === 'getList' || operation === 'customGETLIST') {
+          var ret = [];
+          if (what === 'clientes') {
+            ret = (data._embedded) ? data._embedded.clientes : []
+          } else if (what === 'bebidas') {
+            ret = (data._embedded) ? data._embedded.bebidas : []
+          } else if (what === 'platos') {
+            ret = (data._embedded) ? data._embedded.platos : []
+          } else if (what === 'pedidos') {
+            ret = (data._embedded) ? data._embedded.pedidos : []
+          } else if (what === 'search/obtenerPedidosPendientes') {
+            ret = (data._embedded) ? data._embedded.pedidos : []
+          } else if (what === 'clientes/search/suggest') {
+              ret = (data._embedded) ? data._embedded.clientes : [];
           }
-        };
-        deferred.resolve(response);
-        //return location;
-      }*/
-        if (what === 'clientes') {
-          if (operation === 'getList') {
-            return (data._embedded) ? data._embedded.clientes : []
+          if (data.page) {
+            ret.page = angular.copy(data.page);
           }
+          return ret;
         }
-        if (what === 'bebidas') {
-          if (operation === 'getList') {
-            return (data._embedded) ? data._embedded.bebidas : []
-          }
-        }
-        if (what === 'platos') {
-          if (operation === 'getList') {
-            return (data._embedded) ? data._embedded.platos : []
-          }
-        }
-        if (what === 'pedidos') {
-          if (operation === 'getList' || operation === 'customGETLIST') {
-            return (data._embedded) ? data._embedded.pedidos : []
-          }
-        }
-        if (what === 'search/obtenerPedidosPendientes') {
-          if (operation === 'getList') {
-            return (data._embedded) ? data._embedded.pedidos : []
-          }
-        }
-      })
+      });
       RestangularProvider.setRestangularFields({
-          selfLink: '_links.self.href'
-        })
-        /*RestangularProvider.addFullRequestInterceptor(
-          function (element, operation, route, url, headers, params, httpConfig) {
-            return {
-              headers: $httpProvider.defaults.headers.common
-            };
-        });*/
+        selfLink: '_links.self.href'
+      });
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       $ocLazyLoadProvider.config({
@@ -189,7 +178,8 @@
                 name: 'sbAdminApp',
                 files: [
                   'productos/js/controllers/PlatosCtrl.js',
-                  'productos/js/services/Plato.js'
+                  'productos/js/services/Plato.js',
+                  'productos/js/controllers/modals/CrearPlatoModalInstanceCtrl.js'
                 ]
               })
             }
