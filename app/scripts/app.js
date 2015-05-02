@@ -24,32 +24,17 @@
       'ngAnimate',
       'ngFx',
       'chart.js',
-      'ngCookies'
+      'ngCookies',
+      'ui.utils',
+      'ng-context-menu'
     ])
     .config(function($httpProvider) {
       $httpProvider.interceptors.push('loginInterceptor');
-      //$httpProvider.defaults.headers.common['Accept'] = 'application/json, text/plain, * / *'
-      //$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-      //$httpProvider.defaults.withCredentials = true;
-      //$httpProvider.defaults.headers.common.JSESSIONID = 
     })
     .config(['RestangularProvider', '$httpProvider', function(RestangularProvider, $httpProvider) {
       RestangularProvider.setBaseUrl('http://localhost:8080/api')
       RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-        /*if (operation === 'post' && response.status === 201) {
-          var location = response.headers('Location');
-          console.log(data);
-          console.log(deferred);
-          console.log(response);
-          console.log(location);
-          response.config.data._links = {
-            self: {
-              href: location
-            }
-          };
-          deferred.resolve(response);
-          //return location;
-        }*/
+
         if (operation === 'getList' || operation === 'customGETLIST') {
           var ret = [];
           if (what === 'clientes') {
@@ -63,7 +48,7 @@
           } else if (what === 'search/obtenerPedidosPendientes') {
             ret = (data._embedded) ? data._embedded.pedidos : []
           } else if (what === 'clientes/search/suggest') {
-              ret = (data._embedded) ? data._embedded.clientes : [];
+            ret = (data._embedded) ? data._embedded.clientes : [];
           }
           if (data.page) {
             ret.page = angular.copy(data.page);
@@ -87,7 +72,8 @@
             'scripts/directives/header/header.js',
             'scripts/directives/header/header-notification/header-notification.js',
             'scripts/directives/sidebar/sidebar.js',
-            'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+            'scripts/directives/sidebar/sidebar-search/sidebar-search.js',
+            'scripts/services/confirm-dialog/ConfirmDialogService.js'
             /*,
                        'scripts/services/ApiHost.js',
                        'security/services/Principal.js',

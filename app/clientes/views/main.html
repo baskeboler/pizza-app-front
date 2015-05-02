@@ -21,7 +21,14 @@
 			<tbody>
 				<tr ng-repeat="cliente in vm.listaClientes" 
 					ng-click="vm.seleccionado=cliente"
-					ng-class="{active: (cliente==vm.seleccionado)}">
+					ng-class="{active: (cliente==vm.seleccionado)}"
+					class="fx-fade-down fx-easing-bounce fx-speed-500"
+					context-menu="vm.onRightClick(message)"
+					context-menu-close="vm.onCloseMenu(closeMessage)"
+					context-menu-margin-bottom="10"
+					id="cliente-{{ $index }}"
+					data-target="menu-{{ $index }}"
+					>
 					<td>{{cliente.nombre}}</td>
 					<td>{{cliente.email}}</td>
 					<td>{{cliente.telefono}}</td>
@@ -29,6 +36,30 @@
 				</tr>
 			</tbody>
 		</table>
+		<div
+			ng-repeat="cliente in vm.listaClientes"
+			class="dropdown position-fixed" 
+			id="menu-{{ $index }}">
+			<ul class="dropdown-menu" role="menu">
+				<li role="presentation" class="dropdown-header">{{cliente.nombre}}</li>
+				<li>
+					<a class="pointer" role="menuitem" tabindex="1">
+						Modificar		
+					</a>
+				</li>
+				<li>
+					<a class="pointer" role="menuitem" tabindex="1">
+						Eliminar		
+					</a>
+				</li>
+			</ul>
+		</div>
+		<pagination total-items="vm.page.totalElements"
+						ng-model="vm.currentPage"
+						num-pages="vm.page.totalPages"
+						items-per-page="vm.page.size"
+						ng-change="vm.pageChanged()">
+			</pagination>
 	</div>
 
 	<footer>
@@ -41,12 +72,17 @@
 		<button class="btn btn-default" ng-click="vm.clearSelection()">
 			Clear Selection
 		</button>
-		<button ng-click="vm.deleteSelection()" 
-				ng-show="vm.selectedClient.length==1" 
-				class="btn btn-danger align-right">
-			Delete Selected
+		<button ng-click="vm.editSelected()"
+				ng-show="vm.seleccionado"
+				class="btn btn-default">
+			<i class="fa fa-pencil-square-o fa-fw"></i> Editar Seleccionado
 		</button>
-		<p class="help-text">{{vm.numClientes}} clientes registrados</p>
+		<button ng-click="vm.deleteSelection()" 
+				ng-show="vm.seleccionado" 
+				class="btn btn-danger">
+			<i class="fa fa-trash-o fa-fw"></i> Delete Selected
+		</button>
+		<p class="help-text">{{vm.listaClientes.length}} clientes registrados</p>
 	</footer>
 	<!-- /.row -->
 </div>

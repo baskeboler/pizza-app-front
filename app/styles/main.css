@@ -81,3 +81,7 @@ body {
 text-decoration: none;
 background-color: #eee;
 }
+
+.position-fixed {
+  position: fixed;
+}

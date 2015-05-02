@@ -24,10 +24,10 @@
 				})
 		}
 
-		function getList() {
+		function getList(pagination) {
 			// body...
 			return Restangular.all('clientes')
-				.getList();
+				.getList(pagination);
 		}
 
 		function createCliente(cliente) {
