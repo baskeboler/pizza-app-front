@@ -18,7 +18,7 @@
 
 			function ok (argument) {
 				// body...
-				$modalInstance.close(vm.nuevo);
+				$modalInstance.close(argument);
 			}
 
 			function handleError (res) {

@@ -20,16 +20,16 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="cliente in vm.listaClientes" 
-					ng-click="vm.seleccionado=cliente"
-					ng-class="{active: (cliente==vm.seleccionado)}"
-					class="fx-fade-down fx-easing-bounce fx-speed-500"
+					ng-click="vm.seleccionado=$index"
+					ng-class="{info: (vm.seleccionado==$index)}"
+					class="fx-zoom-right fx-easing-back fx-speed-500"
 					context-menu="vm.onRightClick(message)"
 					context-menu-close="vm.onCloseMenu(closeMessage)"
 					context-menu-margin-bottom="10"
 					id="cliente-{{ $index }}"
 					data-target="menu-{{ $index }}"
 					>
-					<td>{{cliente.nombre}}</td>
+					<td><i class="fa fa-caret-right fa-fw" ng-show="cliente==vm.seleccionado"></i>{{cliente.nombre}}</td>
 					<td>{{cliente.email}}</td>
 					<td>{{cliente.telefono}}</td>
 					<td>{{cliente.direccion}}</td>
@@ -43,13 +43,18 @@
 			<ul class="dropdown-menu" role="menu">
 				<li role="presentation" class="dropdown-header">{{cliente.nombre}}</li>
 				<li>
+					<a class="pointer" role="menuitem" tabindex="1" ng-click="vm.abrirModalVerCliente(cliente)">
+						Ver		
+					</a>
+				</li>
+				<li>
 					<a class="pointer" role="menuitem" tabindex="1">
 						Modificar		
 					</a>
 				</li>
 				<li>
-					<a class="pointer" role="menuitem" tabindex="1">
-						Eliminar		
+					<a class="pointer" role="menuitem" tabindex="1" ng-click="vm.borrarCliente(cliente)">
+						<i class="fa fa-trash-o fa-fw"></i> Eliminar		
 					</a>
 				</li>
 			</ul>

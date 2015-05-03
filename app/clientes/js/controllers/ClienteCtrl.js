@@ -20,6 +20,7 @@
 		vm.updateSuggestions = updateSuggestions;
 		vm.clearSelection = clearSelection;
 		vm.deleteSelection = deleteSelection;
+		vm.borrarCliente = borrarCliente;
 		vm.crearCliente = crearCliente;
 		vm.abrirModalCrearCliente = abrirModalCrearCliente;
 		vm.abrirModalVerCliente = abrirModalVerCliente;
@@ -42,13 +43,24 @@
 			$timeout(cargarClientes, 500);
 		}
 
-		function abrirModalVerCliente(argument) {
+		function abrirModalVerCliente(cli) {
 			// body...
 			var m = $modal.open({
 				templateUrl: 'clientes/views/modals/ver-cliente-modal.html',
 				controller: 'VerClienteModalInstanceController',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				resolve: {
+					cliente: function() {
+						return cli;
+					}
+				}
 			});
+
+			m.result.then(ok);
+
+			function ok() {
+				//noop
+			}
 
 		}
 
@@ -80,7 +92,8 @@
 
 			function creado(nuevo) {
 				$log.debug('[ClienteController] Cliente creado.');
-				vm.listaClientes.push(nuevo);
+				// vm.listaClientes.push(nuevo);
+				cargarClientes();
 			}
 
 			function cancelado(argument) {
@@ -137,11 +150,32 @@
 			}
 		}
 
+		function borrarCliente(cliente) {
+			// body...
+			var modal = ConfirmDialog.confirm('Borrar Cliente', 'Estas seguro de borrar el cliente?');
+			modal.result.then(ok, cancelar);
+
+			function ok() {
+				// body...
+				cliente.remove()
+					.then(function() {
+
+						cargarClientes();
+						vm.seleccionado = null;
+					});
+				$log.debug('[ClienteController] eliminando cliente.')
+			}
+
+			function cancelar() {
+				$log.debug('[ClienteController] no se borra el cliente.')
+			}
+		}
+
 
 
 		function crearCliente() {
 			Cliente.create(vm.nuevo)
-				.then(function() {
+				.then(function(data) {
 					vm.listaClientes.push(vm.nuevo);
 					vm.nuevo = {};
 				});

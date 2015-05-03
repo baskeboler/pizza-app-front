@@ -1,0 +1,23 @@
+<li>
+    <div class="timeline-badge info" ng-click="vm.showPanel=!vm.showPanel"><i class="fa fa-credit-card"></i>
+    </div>
+    <div class="timeline-panel" ng-show="vm.showPanel">
+        <div class="timeline-heading">
+            <h4 class="timeline-title">{{vm.pedido.cliente.nombre}}</h4>
+        </div>
+        <div class="timeline-body">
+    
+            <p>{{vm.pedido.estado.id}}</p>
+            <small>{{vm.pedido.fecha | fromnow}}</small>
+            <ul>
+                <li ng-repeat="item in vm.pedido.items">
+                    {{item.cantidad}} - {{item.producto.nombre}}
+                </li>
+            </ul> 
+            <div class="list-group">
+                <div class="list-group-item">
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

@@ -11,10 +11,16 @@
       create: create,
       nextState: nextState,
       getPedidosPorClientes: getPedidosPorClientes,
-      getPedidosPendientes: getPedidosPendientes
-    }
+      getPedidosPendientes: getPedidosPendientes,
+      get: get
+    };
 
-    return service
+    return service;
+
+    function get(idPedido) {
+      return Restangular.one('pedidos', idPedido)
+        .get();
+    }
 
     function getPedidosPorClientes() {
       var deferred = $q.defer()

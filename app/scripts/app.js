@@ -55,6 +55,8 @@
           }
           return ret;
         }
+        deferred.resolve(data);
+        return deferred.promise;
       });
       RestangularProvider.setRestangularFields({
         selfLink: '_links.self.href'
@@ -131,7 +133,10 @@
                 $ocLazyLoad.load('sbAdminApp'),
                 $ocLazyLoad.load('toggle-switch'),
                 $ocLazyLoad.load('ngCookies')
-              ]
+              ];
+            },
+            authorize: function(authorization) {
+              return authorization.authorize();
             }
           }
         })
@@ -180,9 +185,11 @@
               return $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: [
-                  'pedidos/js/services/Pedido.js'
+                  'pedidos/js/services/Pedido.js',
+                  'pedidos/js/directives/timelinePedidos.js',
+                  'pedidos/js/directives/TarjetaPedido.js'
                 ]
-              })
+              });
             }
           }
         })
@@ -270,7 +277,8 @@
                 files: [
                   'clientes/js/controllers/ClienteCtrl.js',
                   'clientes/js/services/Cliente.js',
-                  'clientes/js/controllers/CrearClienteModalInstanceCtrl.js'
+                  'clientes/js/controllers/CrearClienteModalInstanceCtrl.js',
+                  'clientes/js/controllers/VerClienteModalInstanceCtrl.js'
                 ]
               })
             }
@@ -303,26 +311,11 @@
             }
           }
         })
-        .state('login.accessdenied', {
-          templateUrl: '/views/pages/login.html',
-          controller: 'LoginController',
-          controllerAs: 'vm',
+        .state('accessdenied', {
+          templateUrl: '/views/pages/accessdenied.html',
           url: '/accessdenied',
           data: {
             msg: 'Access Denied'
-          },
-          resolve: {
-            load: function($ocLazyLoad) {
-              return $ocLazyLoad.load({
-                name: 'sbAdminApp',
-                files: [
-                  /*'security/services/Authorization.js',
-                  'security/services/Principal.js',
-                  'scripts/services/ApiHost.js',*/
-                  'security/controllers/LoginCtrl.js'
-                ]
-              })
-            }
           }
         })
         .state('dashboard.chart', {

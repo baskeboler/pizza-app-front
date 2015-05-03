@@ -3,9 +3,9 @@
   /*globals angular:false, _:false*/
   angular.module('sbAdminApp')
     .controller('BebidasController', BebidasCtrl)
-  BebidasCtrl.$inject = ['$log', 'Bebida', '$timeout', '$modal', 'notify']
+  BebidasCtrl.$inject = ['$log', 'Bebida', '$timeout', '$modal', 'notify', 'ConfirmDialog']
 
-  function BebidasCtrl($log, Bebida, $timeout, $modal, notify) {
+  function BebidasCtrl($log, Bebida, $timeout, $modal, notify, ConfirmDialog) {
     var vm = this;
     vm.title = 'Bebidas';
     vm.nueva = {};
@@ -61,13 +61,19 @@
     }
 
     function removeBebida(bebida) {
-      bebida.remove()
-        .then(ok, showErrors)
+      var doit = ConfirmDialog.confirm('Eliminar Bebida', 'Eliminar ' + bebida.nombre + '?');
+      doit.result.then(ok);
 
       function ok() {
-        _.remove(vm.listaBebidas, function(b) {
-          return b === bebida
-        })
+        // body...
+        bebida.remove()
+          .then(ok, showErrors)
+
+        function ok() {
+          _.remove(vm.listaBebidas, function(b) {
+            return b === bebida
+          })
+        }
       }
     }
 

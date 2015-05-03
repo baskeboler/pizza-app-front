@@ -4,9 +4,9 @@
 	angular.module("sbAdminApp")
 		.controller('PlatosController', PlatosCtrl);
 
-	PlatosCtrl.$inject = ['Plato', '$log', '$timeout', '$modal', 'notify'];
+	PlatosCtrl.$inject = ['Plato', '$log', '$timeout', '$modal', 'notify', 'ConfirmDialog'];
 
-	function PlatosCtrl(Plato, $log, $timeout, $modal, notify) {
+	function PlatosCtrl(Plato, $log, $timeout, $modal, notify, ConfirmDialog) {
 		var vm = this;
 		vm.title = 'Platos';
 		vm.nueva = {};
@@ -53,13 +53,19 @@
 		}
 
 		function removePlato(plato) {
-			plato.remove()
-				.then(ok, showErrors);
+			var doit = ConfirmDialog.confirm('Eliminar Plato', 'Eliminar ' + plato.nombre + '?');
+			doit.result.then(ok);
 
 			function ok() {
-				_.remove(vm.listaPlatos, function(b) {
-					return b === plato;
-				});
+				// body...
+				plato.remove()
+					.then(ok, showErrors);
+
+				function ok() {
+					_.remove(vm.listaPlatos, function(b) {
+						return b === plato;
+					});
+				}
 			}
 		}
 

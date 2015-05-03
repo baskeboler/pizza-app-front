@@ -18,17 +18,19 @@
         .success(function(user) {
           $log.debug('got user');
           $log.debug(user);
-          $rootScope.user = user;
-          $rootScope.user.isAuthenticated = true;
+          /*$rootScope.user = user;
+          $rootScope.user.isAuthenticated = true;*/
           principal.authenticate(user);
-          $http.defaults.headers.common[appConfig.xAuthTokenHeaderName] = user.token;
-          var restangularHeader = {};
-          restangularHeader[appConfig.xAuthTokenHeaderName] = user.token;
-          Restangular.setDefaultHeaders(restangularHeader);
-          if (angular.isDefined($rootScope.toState)) {
-            $state.go($rootScope.toState);
-            $rootScope.toState = undefined;
-            $rootScope.toStateParams = undefined;
+          $rootScope.userToken = user.token;
+          /*$http.defaults.headers.common[appConfig.xAuthTokenHeaderName] = user.token;
+           */
+          /*
+                    var restangularHeader = {};
+                    restangularHeader[appConfig.xAuthTokenHeaderName] = user.token;
+                    Restangular.setDefaultHeaders(restangularHeader);*/
+          if (angular.isDefined($rootScope.returnToState)) {
+            $state.go($rootScope.returnToState);
+            $rootScope.returnToState = undefined;
           } else {
             $state.go('dashboard.home');
           }

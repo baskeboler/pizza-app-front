@@ -20,7 +20,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Pedidos</div>
 				<div class="panel-body">
-					
+					<!--
 					<div class="list-group">
 						<div class="list-group-item fx-zoom-right fx-easing-elastic fx-speed-600 col col-md-4" 
 							ng-repeat="pedido in vm.listaPedidos track by $index " 
@@ -60,7 +60,14 @@
 									</div>
 							</p>
 						</div>
-					</div>
+					</div> -->
+					<timeline-pedidos>
+						<tarjeta-pedido ng-repeat="pedido in vm.listaPedidos" 
+										id-pedido="{{pedido.id}}"
+										inverted="{{$even}}">
+						
+						</tarjeta-pedido>
+					</timeline-pedidos>
 				</div>
 			</div>
 		</div>

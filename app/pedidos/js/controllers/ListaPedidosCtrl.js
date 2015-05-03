@@ -122,7 +122,7 @@
         vm.currentPage = data.page.number + 1;
         _.each(vm.listaPedidos, function(pedido) {
           pedido.total = calcTotalPedido(pedido)
-          $log.debug(pedido.total)
+            //$log.debug(pedido.total)
           pedido.tiempo = moment(pedido.fecha)
           if (pedido.tiempo.add(30, 'm')
             .isBefore(moment())) {
@@ -168,4 +168,4 @@
     }
   }
 
-})()
+})();

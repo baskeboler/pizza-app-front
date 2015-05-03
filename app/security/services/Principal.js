@@ -18,7 +18,7 @@
     }
 
     function isIdentityResolved() {
-      return angular.isDefined(_identity)
+      return angular.isDefined(_identity) && _identity != null;
     }
 
     function isAuthenticated() {
@@ -71,9 +71,9 @@
           deferred.resolve(_identity)
         })
         .error(function() {
-          _identity = null
-          _authenticated = false
-          deferred.resolve(_identity)
+          _identity = undefined;
+          _authenticated = false;
+          deferred.resolve(_identity);
         })
 
       return deferred.promise
